@@ -1,0 +1,32 @@
+<table id="example" class="display">
+  <thead>
+    <th>Nome</th>
+    <th>Classe</th>
+    <th>Agente</th>
+    <th>Encode</th>
+    <th>Url</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @requisicaos.each do |requisicao| %>
+      <tr>
+        <td><%= requisicao.last.acao.nome %></td>
+        <td><%= requisicao.last.acao.classe %></td>
+        <td><%= requisicao.last.agent %></td>
+        <td><%= requisicao.last.encode %></td>
+        <% if requisicao.last.http.present? %>
+          <td><%= requisicao.last.http.view_url %></td>
+        <% else %>
+        <td></td>
+        <% end %>
+        <td><%= link_to 'Show', requisicao.last %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function() {
+      $("#example").dataTable();
+  });
+</script>

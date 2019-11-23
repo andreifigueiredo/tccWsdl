@@ -1,0 +1,16 @@
+<div>
+  <p><b>Action Name:</b><%= @requisicao.acao.nome %></p>
+  <p><b>Action Class:</b><%= @requisicao.acao.classe %></p>
+  <% @requisicao.parametros.each_with_index do |parametro, index| %>
+    <p><b>Param <%= index+1 %>:</b></p>
+    <p><b>Param Name:</b><%= parametro.param_nome %></p>
+    <p><b>Param Type:</b><%= parametro.param_tipo %></p>
+  <% end %>
+  <p><b>Request Agent:</b><%= @requisicao.agent %></p>
+  <p><b>Request Encode:</b><%= @requisicao.encode %></p>
+  <% if @requisicao.sessao.present? && @requisicao.sessao.obj_sessao.present?  %>
+    <p><b>Session Object:</b><%= @requisicao.sessao.obj_sessao.obj_text %></p>
+  <% end %>
+
+  <td><%= link_to 'Voltar', root_path %></td>
+</div>

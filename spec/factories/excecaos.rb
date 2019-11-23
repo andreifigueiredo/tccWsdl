@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :excecao do
-    references { "" }
+    error { "MyText" }
+    acao { nil }
   end
 end

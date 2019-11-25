@@ -2,9 +2,21 @@
   <h1>Bem vindo ao Monitorador de Excecoes</h1>
 
   <ul class="list-group">
-    <li class="list-group-item"><%= link_to 'Exceções', excecaos_path %></li>
+  <% if current_developer.admin %>
+    <li class="list-group-item"><%= link_to 'Projetos', projects_path %></li>
     <li class="list-group-item"><%= link_to 'Criar Novo Projeto', new_project_path %></li>
-    <li class="list-group-item"><%= link_to 'Cadastrar Novos Desenvolvedores', new_developer_registration_path %></li>
+    <%
+=begin%>
+ <li class="list-group-item"><%= link_to 'Cadastrar Novos Desenvolvedores', new_developer_path %></li> 
+<%
+=end%>
+  <% else %>
+    <% if current_developer.project.present? %>
+      <li class="list-group-item"><%= link_to 'Meu Projeto', project_path(current_developer.project) %></li>
+    <% else %>
+      <strong class="text-danger"> Favor solicite que algum administrador lhe adicione a um projeto </strong>
+    <% end %>    
+  <% end %>
   </ul>
 
   <% if developer_signed_in? %>

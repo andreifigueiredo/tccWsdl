@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_144515) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.boolean "admin"
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,9 +40,11 @@ ActiveRecord::Schema.define(version: 2019_11_23_144515) do
   create_table "excecaos", force: :cascade do |t|
     t.text "error"
     t.bigint "acao_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["acao_id"], name: "index_excecaos_on_acao_id"
+    t.index ["project_id"], name: "index_excecaos_on_project_id"
   end
 
   create_table "https", force: :cascade do |t|
@@ -95,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_144515) do
 
   add_foreign_key "developers", "projects"
   add_foreign_key "excecaos", "acaos"
+  add_foreign_key "excecaos", "projects"
   add_foreign_key "https", "requisicaos"
   add_foreign_key "obj_sessaos", "sessaos"
   add_foreign_key "parametros", "requisicaos"

@@ -1,23 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Index:</strong>
-  <%= @project.index %>
-</p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+  <br>
+  <strong>Exceções:</strong>
+    <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+    <thead>
+      <tr>
+        <th data-data="error">Error</th>
+        <th data-data="created_at">Ultima Ocorrência</th>
+        <th></th>
+        <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+      </tr>
+      <% @project.excecaos.all do |excecao| %>
+        <tr>
+          <td><%= excecao.error %></td>
+          <td><%= excecao.created_at %></td>
+          <td><%= link_to 'Detalhes', excecao %></td>
+        </tr>
+      <% end %>
+    </thead>
 
-<p>
-  <strong>Show:</strong>
-  <%= @project.show %>
-</p>
-
-<p>
-  <strong>New:</strong>
-  <%= @project.new %>
-</p>
-
-<p>
-  <strong>Edit:</strong>
-  <%= @project.edit %>
+  </table>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

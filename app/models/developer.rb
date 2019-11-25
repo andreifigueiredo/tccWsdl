@@ -4,5 +4,5 @@ class Developer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :project
+  belongs_to :project, optional: true
 end

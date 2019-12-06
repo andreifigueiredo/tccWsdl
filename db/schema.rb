@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_144515) do
+ActiveRecord::Schema.define(version: 2019_13_23_144515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_11_23_144515) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "admin"
-    t.bigint "project_id"
+    t.bigint "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_developers_on_email", unique: true
-    t.index ["project_id"], name: "index_developers_on_project_id"
     t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_developers_on_team_id"
   end
 
   create_table "excecaos", force: :cascade do |t|
@@ -96,7 +96,15 @@ ActiveRecord::Schema.define(version: 2019_11_23_144515) do
     t.index ["requisicao_id"], name: "index_sessaos_on_requisicao_id"
   end
 
-  add_foreign_key "developers", "projects"
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_teams_on_project_id"
+  end
+
+  add_foreign_key "developers", "teams"
   add_foreign_key "excecaos", "acaos"
   add_foreign_key "excecaos", "projects"
   add_foreign_key "https", "requisicaos"
@@ -104,4 +112,5 @@ ActiveRecord::Schema.define(version: 2019_11_23_144515) do
   add_foreign_key "parametros", "requisicaos"
   add_foreign_key "requisicaos", "acaos"
   add_foreign_key "sessaos", "requisicaos"
+  add_foreign_key "teams", "projects"
 end

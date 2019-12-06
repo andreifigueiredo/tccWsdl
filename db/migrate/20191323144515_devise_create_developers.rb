@@ -34,7 +34,7 @@ class DeviseCreateDevelopers < ActiveRecord::Migration[5.2]
 
       t.boolean :admin
       
-      t.references :project, foreign_key: true
+      t.references :team, foreign_key: true
 
 
       t.timestamps null: false

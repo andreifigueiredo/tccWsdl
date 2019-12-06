@@ -4,7 +4,7 @@ class Developer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :project, optional: true
+  belongs_to :team, optional: true
 
   before_validation :default_admin,  if: -> {self.admin.nil?}
 

@@ -1,10 +1,12 @@
 <div class="container">
-  <h1>Bem vindo ao Monitorador de Excecoes</h1>
+  <h1>Bem vindo ao Monitorador de Exceções</h1>
 
   <ul class="list-group">
   <% if current_developer.admin %>
     <li class="list-group-item"><%= link_to 'Projetos', projects_path %></li>
     <li class="list-group-item"><%= link_to 'Criar Novo Projeto', new_project_path %></li>
+    <li class="list-group-item"><%= link_to 'Cadastrar Desenvolvedores', new_developer_registration_path %></li>
+    <li class="list-group-item"><%= link_to 'Criar Time', new_team_path %></li>
     <%
 =begin%>
  <li class="list-group-item"><%= link_to 'Cadastrar Novos Desenvolvedores', new_developer_path %></li> 

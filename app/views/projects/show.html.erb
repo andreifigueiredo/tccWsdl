@@ -4,7 +4,11 @@
   <strong>Name:</strong>
   <%= @project.name %>
   <br>
-  <strong>Exceções:</strong>
+  <%
+=begin%>
+ <strong>Exceções:</strong> 
+<%
+=end%>
     <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
     <thead>
       <tr>
@@ -26,4 +30,5 @@
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'Home', root_path %>

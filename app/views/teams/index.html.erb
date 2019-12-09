@@ -7,10 +7,18 @@
       <th data-data="project">Project</th>
       <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
+    <% @teams.each do |team|%>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.project.name %></td>
+        <td><%= link_to 'Detalhes', team %></td>
+      </tr>
+    <% end %>
   </thead>
 
 </table>
 
 <br>
 
-<%= link_to 'New Team', new_team_path %>
+<%= link_to 'New Team', new_team_path %> |
+<%= link_to 'Home', root_path %>

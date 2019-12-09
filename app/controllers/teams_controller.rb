@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :get_projects, only: [:new, :edit]
   before_action :authenticate_developer!
 
   # GET /teams
@@ -71,5 +72,9 @@ class TeamsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
       params.require(:team).permit(:name, :project_id)
+    end
+
+    def get_projects
+      @projects = Project.all
     end
 end

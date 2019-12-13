@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'excecaos/index'
 
+  resources :developers, only: [:index, :show]
   wash_out :wsdl_services
 
   resources :excecaos, only: [:index, :show]

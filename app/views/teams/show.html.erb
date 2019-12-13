@@ -15,13 +15,13 @@
   <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
   <thead>
     <tr>
-      <th data-data="name">Name</th>
+      <th data-data="email">Email</th>
       <th></th>
       <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
     <% @team.developers.each do |developer|%>
       <tr>
-        <td><%= developer.name %></td>
+        <td><%= developer.email %></td>
         <td><%= link_to 'Detalhes', developer %></td>
       </tr>
     <% end %>

@@ -1,0 +1,30 @@
+<h1>Developers</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-developers" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="email">Email</th>
+      <th data-data="email">Admin</th>
+      <th data-data="project">Team</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+    </tr>
+    <% @developers.each do |developer|%>
+      <tr>
+        <td><%= developer.email %></td>
+        <td><%= developer.admin %></td>
+        <td><%= developer.team && developer.team.name %></td>
+        <td><%= link_to 'Detalhes', developer %></td>
+      </tr>
+    <% end %>
+  </thead>
+
+</table>
+
+<br>
+
+<%
+=begin%>
+ <%= link_to 'New developer', new_developer_path %> | 
+<%
+=end%>
+<%= link_to 'Home', root_path %>

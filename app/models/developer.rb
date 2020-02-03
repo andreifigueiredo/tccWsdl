@@ -5,10 +5,10 @@ class Developer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :team, optional: true
-  belongs_to :dono_excecao, optional: true
-
+  
+  has_many :dono_excecaos
+  
   before_validation :default_admin,  if: -> {self.admin.nil?}
-
 
   private
 

@@ -1,4 +1,4 @@
 class DonoExcecao < ApplicationRecord
-  has_one :developer
-  has_one :excecao
+  belongs_to :developer, optional: true
+  belongs_to :excecao
 end

@@ -22,7 +22,7 @@
         <tr>
           <td><%= excecao.error %></td>
           <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
-            <%= excecao.dono_excecao.developer.nome %>
+            <%= excecao.dono_excecao.developer.email %>
           <% end %></td>
           <td><%= excecao.created_at %></td>
           <td><%= link_to 'Detalhes', excecao %></td>

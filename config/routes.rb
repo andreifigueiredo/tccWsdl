@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :developers, only: [:index, :show]
   
   resources :excecaos, only: [:index, :show]
+
+  resources :dono_excecaos, only: [:show, :edit, :update]
   
   root to: 'home#index'
   

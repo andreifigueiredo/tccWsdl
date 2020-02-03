@@ -57,5 +57,8 @@
   <br>
 <% end %>
 
+<% if current_developer.admin %>
+  <%= link_to 'Desginar Responsável', edit_dono_excecao_path(@dono_excecao) %>  |
+<% end %>
 <%= link_to 'Back', projects_path %> |
 <%= link_to 'Home', root_path %>

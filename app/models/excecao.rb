@@ -1,14 +1,15 @@
 class Excecao < ApplicationRecord
   belongs_to :acao, optional: true
   belongs_to :project
-  belongs_to :dono_excecao
-
+  
   has_many :parametros
+  has_one :dono_excecao
   has_one :http
   has_one :sessao
 
-  def initialize 
-    super
-    self.dono_excecao.create
+  after_create :create_dono_excecao
+
+  def create_dono_excecao 
+    DonoExcecao.create(excecao: self)
   end
 end

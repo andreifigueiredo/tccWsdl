@@ -1,3 +1,3 @@
 class Http < ApplicationRecord
-  belongs_to :requisicao
+  belongs_to :excecao
 end

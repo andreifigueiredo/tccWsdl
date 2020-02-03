@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :acao do
-    nome { "MyText" }
-    classe { "MyText" }
-    references { "" }
+    nome { Faker::TvShows::SouthPark.character }
+    classe { Faker::Games::Witcher.school }
   end
 end

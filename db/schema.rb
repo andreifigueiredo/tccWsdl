@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 2019_13_23_144516) do
     t.text "view_referer"
     t.text "view_url"
     t.text "view_method"
-    t.bigint "requisicao_id"
+    t.bigint "excecao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["requisicao_id"], name: "index_https_on_requisicao_id"
+    t.index ["excecao_id"], name: "index_https_on_excecao_id"
   end
 
   create_table "obj_sessaos", force: :cascade do |t|
@@ -80,10 +80,10 @@ ActiveRecord::Schema.define(version: 2019_13_23_144516) do
   create_table "parametros", force: :cascade do |t|
     t.string "param_tipo"
     t.string "param_nome"
-    t.bigint "requisicao_id"
+    t.bigint "excecao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["requisicao_id"], name: "index_parametros_on_requisicao_id"
+    t.index ["excecao_id"], name: "index_parametros_on_excecao_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -102,10 +102,10 @@ ActiveRecord::Schema.define(version: 2019_13_23_144516) do
   end
 
   create_table "sessaos", force: :cascade do |t|
-    t.bigint "requisicao_id"
+    t.bigint "excecao_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["requisicao_id"], name: "index_sessaos_on_requisicao_id"
+    t.index ["excecao_id"], name: "index_sessaos_on_excecao_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -119,10 +119,10 @@ ActiveRecord::Schema.define(version: 2019_13_23_144516) do
   add_foreign_key "developers", "teams"
   add_foreign_key "excecaos", "acaos"
   add_foreign_key "excecaos", "projects"
-  add_foreign_key "https", "requisicaos"
+  add_foreign_key "https", "excecaos"
   add_foreign_key "obj_sessaos", "sessaos"
-  add_foreign_key "parametros", "requisicaos"
+  add_foreign_key "parametros", "excecaos"
   add_foreign_key "requisicaos", "acaos"
-  add_foreign_key "sessaos", "requisicaos"
+  add_foreign_key "sessaos", "excecaos"
   add_foreign_key "teams", "projects"
 end

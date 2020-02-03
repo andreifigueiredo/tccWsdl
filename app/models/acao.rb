@@ -1,3 +1,5 @@
 class Acao < ApplicationRecord
-    has_many :requisicaos
+    has_many :excecaos
+
+    has_many :parametros
 end

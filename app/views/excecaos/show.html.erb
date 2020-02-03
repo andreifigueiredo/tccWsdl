@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<strong>Error:</strong>
+<%= @excecao.error %>
+<br>
+
+<% if @excecao.acao.present? %>
+  <p>
+  <strong>Nome da action:</strong>
+  <%= @excecao.acao.nome %>
+  <br>
+
+  <p>
+  <strong>Classe da action:</strong>
+  <%= @excecao.acao.classe %>
+  <br>
+
+<% end %>
+
+<% if @excecao.parametros.present? %>
+  <strong>Parametros</strong>
+  |<% @exceao.parametros.each do |parametro| %>
+    <%= parametro.name %> |
+  <% end %>
+  <br>
+<% end %>  
+
+<% if @excecao.http.present? %>
+  <p>
+  <strong>Referer:</strong>
+  <%= @excecao.http.referer %>
+  <br>
+
+  <p>
+  <strong>Url:</strong>
+  <%= @excecao.http.url %>
+  <br>
+
+  <p>
+  <strong>Método da view:</strong>
+  <%= @excecao.http.method %>
+  <br>
+<% end %>
+
+
+<% if @excecao.sessao.present? %>
+  <p>
+  <strong>Objeto da sessao:</strong>
+  <%= @excecao.sessao.obj_sessao.obj_text %>
+  <br>
+<% end %>
+
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'Home', root_path %>

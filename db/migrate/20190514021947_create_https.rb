@@ -4,7 +4,7 @@ class CreateHttps < ActiveRecord::Migration[5.2]
       t.text :view_referer
       t.text :view_url
       t.text :view_method
-      t.references :requisicao, foreign_key: true
+      t.references :excecao, foreign_key: true
 
       t.timestamps
     end

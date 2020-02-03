@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :excecao do
-    error { "MyText" }
-    acao { nil }
+    error { Faker::TvShows::SouthPark.quote }
+    project { Project.last}
+    association :acao
   end
 end

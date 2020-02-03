@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :http do
-    view_referer { "MyText" }
-    view_url { "MyText" }
-    view_method { "MyText" }
-    references { "" }
+    view_referer { Faker::TvShows::SouthPark.quote }
+    view_url { "www.example.com" }
+    view_method { "Post" }
   end
 end

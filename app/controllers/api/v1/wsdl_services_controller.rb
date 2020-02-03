@@ -1,5 +1,6 @@
-class WsdlServicesController < ApplicationController
+class Api::V1::WsdlServicesController < ApplicationController
   soap_service namespace: 'urn:WashOut'
+  include ExcecaoHelper
 
   soap_action "SendLog",
       :args => {
@@ -7,9 +8,8 @@ class WsdlServicesController < ApplicationController
           :acaoNome => :string,
           :acaoClasse => :string,
         },
-        :requisicao => {
-          :reqAgent => :string,
-          :reqEncode => :string,
+        :excecap => {
+          :error => :string,
         },
         :http => {
           :viewReferer => :string,
@@ -30,38 +30,38 @@ class WsdlServicesController < ApplicationController
   def send_log
 
     # binding.pry
-      acao_nome = params[:acao][:acaoNome]
-      acao_classe = params[:acao][:acaoClasse]
-      view_referer = params[:http][:viewReferer]
-      view_url = params[:http][:viewUrl]
-      view_method = params[:http][:viewMethod]
-      obj_text = params[:objSessao][:objText]
-      # a array of params
-      # param_tipo = params[:parametros][:paramTipo]
-      # param_nome = params[:parametros][:paramNome]
-      req_agent = params[:requisicao][:reqAgent]
-      req_encode = params[:requisicao][:reqEncode]
+      # acao_nome = params[:acao][:acaoNome]
+      # acao_classe = params[:acao][:acaoClasse]
+      # view_referer = params[:http][:viewReferer]
+      # view_url = params[:http][:viewUrl]
+      # view_method = params[:http][:viewMethod]
+      # obj_text = params[:objSessao][:objText]
+      # # a array of params
+      # # param_tipo = params[:parametros][:paramTipo]
+      # # param_nome = params[:parametros][:paramNome]
+      # excecao_error = params[:excecao][:error]
 
 
       puts "Inicio Query"
+      create_excecoes(params)
       # A excecao apenas guardava data/hora, rails faz isso por padrão
       # puts newExc.id
-      newAcao = Acao.create(nome: acao_nome, classe: acao_classe)
-      puts newAcao.id
-      newReq = newAcao.requisicaos.create(agent: req_agent, encode: req_encode)
-      puts newReq.id
-      newView = newReq.create_http(view_referer: view_referer, view_method: view_method, view_url: view_url)
-      puts newView.id
+      # newAcao = Acao.create(nome: acao_nome, classe: acao_classe)
+      # puts newAcao.id
+      # newExc = newAcao.requisicaos.create(error: excecao_error)
+      # puts newExc.id
+      # newView = newExc.create_http(view_referer: view_referer, view_method: view_method, view_url: view_url)
+      # puts newView.id
 
-      params[:parametros].each do |parametro|
-        # binding.pry
-        newPar = newReq.parametros.create(param_tipo: parametro[:paramTipo], param_nome: parametro[:paramNome])
-        puts newPar.id
-      end
-      newSess = newReq.create_sessao
-      puts newSess.id
-      newObj = newSess.create_obj_sessao(obj_text: obj_text)
-      puts newObj.id
+      # params[:parametros].each do |parametro|
+      #   # binding.pry
+      #   newPar = newExc.parametros.create(param_tipo: parametro[:paramTipo], param_nome: parametro[:paramNome])
+      #   puts newPar.id
+      # end
+      # newSess = newExc.create_sessao
+      # puts newSess.id
+      # newObj = newSess.create_obj_sessao(obj_text: obj_text)
+      # puts newObj.id
       
       puts "Fim Query" 
       render :soap => nil

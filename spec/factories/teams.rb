@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :team do
     name { "MyString" }
-    project { nil }
+    association :project
   end
 end

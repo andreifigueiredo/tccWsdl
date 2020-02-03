@@ -17,7 +17,7 @@
         <th></th>
         <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
       </tr>
-      <% @project.excecaos.all do |excecao| %>
+      <% @project.excecaos.each do |excecao| %>
         <tr>
           <td><%= excecao.error %></td>
           <td><%= excecao.created_at %></td>

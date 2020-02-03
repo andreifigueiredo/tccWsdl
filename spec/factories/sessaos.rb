@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :sessao do
-    requisicao { nil }
+    association :excecao
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_13_23_144516) do
+ActiveRecord::Schema.define(version: 2020_02_03_142840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2019_13_23_144516) do
     t.index ["invited_by_type", "invited_by_id"], name: "index_developers_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true
     t.index ["team_id"], name: "index_developers_on_team_id"
+  end
+
+  create_table "dono_excecaos", force: :cascade do |t|
+    t.boolean "solved"
+    t.bigint "developer_id"
+    t.bigint "excecao_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_dono_excecaos_on_developer_id"
+    t.index ["excecao_id"], name: "index_dono_excecaos_on_excecao_id"
   end
 
   create_table "excecaos", force: :cascade do |t|

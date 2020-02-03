@@ -13,6 +13,7 @@
     <thead>
       <tr>
         <th data-data="error">Error</th>
+        <th data-data="error">Responsável</th>
         <th data-data="created_at">Ultima Ocorrência</th>
         <th></th>
         <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
@@ -20,6 +21,9 @@
       <% @project.excecaos.each do |excecao| %>
         <tr>
           <td><%= excecao.error %></td>
+          <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
+            <%= excecao.dono_excecao.developer.nome %>
+          <% end %></td>
           <td><%= excecao.created_at %></td>
           <td><%= link_to 'Detalhes', excecao %></td>
         </tr>

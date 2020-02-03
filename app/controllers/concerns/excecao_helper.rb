@@ -16,7 +16,7 @@ module ExcecaoHelper
 
       newAcao = Acao.create(nome: acao_nome, classe: acao_classe)
       puts newAcao.id
-      newExc = newAcao.requisicaos.create(error: excecao_error)
+      newExc = newAcao.excecaos.create(error: excecao_error)
       puts newExc.id
       newView = newExc.create_http(view_referer: view_referer, view_method: view_method, view_url: view_url)
       puts newView.id

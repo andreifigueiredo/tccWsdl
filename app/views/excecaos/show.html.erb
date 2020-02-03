@@ -5,6 +5,12 @@
 <%= @excecao.error %>
 <br>
 
+<% if @excecao.dono_excecao.present? && @excecao.dono_excecao.developer.present? %>
+  <p>
+  <strong>Responsável:</strong>
+  <%= @excecao.dono_excecao.developer.nome %>
+<% end %>
+
 <% if @excecao.acao.present? %>
   <p>
   <strong>Nome da action:</strong>

@@ -8,7 +8,7 @@
 <% if @excecao.dono_excecao.present? && @excecao.dono_excecao.developer.present? %>
   <p>
   <strong>Responsável:</strong>
-  <%= @excecao.dono_excecao.developer.nome %>
+  <%= @excecao.dono_excecao.developer.email %>
 <% end %>
 
 <% if @excecao.acao.present? %>
@@ -57,7 +57,12 @@
   <br>
 <% end %>
 
-<% if current_developer.admin %>
+<% if current_developer.admin && @dono_excecao.present?%>
+<%
+=begin%>
+ <% binding.pry %> 
+<%
+=end%>
   <%= link_to 'Desginar Responsável', edit_dono_excecao_path(@dono_excecao) %>  |
 <% end %>
 <%= link_to 'Back', projects_path %> |

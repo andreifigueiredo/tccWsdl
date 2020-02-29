@@ -15,9 +15,5 @@
   <%= @developer.team && @developer.team.name %>
 </p>
 
-<%
-=begin%>
- <%= link_to 'Edit', edit_developer_path(@developer) %> | 
-<%
-=end%>
+<%= link_to 'Edit', edit_developer_path(@developer) %> | 
 <%= link_to 'Back', developers_path %>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'excecaos/index'
 
-  resources :developers, only: [:index, :show]
+  resources :developers, only: [:index, :show, :edit, :update]
   
   resources :excecaos, only: [:index, :show]
 

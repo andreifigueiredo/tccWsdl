@@ -18,7 +18,7 @@ class DevelopersController < ApplicationController
   def edit
   end
 
-      # PATCH/PUT /developers/1
+  # PATCH/PUT /developers/1
   # PATCH/PUT /developers/1.json
   def update
     respond_to do |format|

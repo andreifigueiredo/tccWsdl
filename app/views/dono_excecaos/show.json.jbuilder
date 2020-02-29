@@ -1,0 +1,1 @@
+json.partial! "dono_excecaos/dono_excecao", dono_excecao: @dono_excecao

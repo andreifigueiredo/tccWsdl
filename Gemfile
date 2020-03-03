@@ -58,6 +58,7 @@ gem 'bootstrap', '~>4.0.0'
 #Email styles
 gem 'premailer-rails', '~> 1.10.2'
 
+gem 'rswag'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

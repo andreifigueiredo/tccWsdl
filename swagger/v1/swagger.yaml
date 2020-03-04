@@ -1,0 +1,49 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/excecaos":
+    post:
+      summary: Create a excecao
+      tags:
+      - Excecaos
+      consumes:
+      - application/json
+      - application/xml
+      parameters:
+      - name: excecao
+        in: body
+        schema:
+          type: object
+          proprieties:
+            acao:
+              acaoNome:
+                type: string
+              acaoClasse:
+                type: string
+            excecao:
+              error:
+                type: string
+            http:
+              viewReferer:
+                type: string
+              viewUrl:
+                type: string
+              viewMethod:
+                type: string
+            objSessao:
+              objText:
+                type: string
+            parametros:
+            - paramTipo:
+                type: string
+              paramNome:
+                type: string
+          required: []
+      responses:
+        '201':
+          description: excecao created
+        '422':
+          description: invalid request

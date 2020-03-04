@@ -8,7 +8,7 @@ class Api::V1::WsdlServicesController < ApplicationController
           :acaoNome => :string,
           :acaoClasse => :string,
         },
-        :excecap => {
+        :excecao => {
           :error => :string,
         },
         :http => {

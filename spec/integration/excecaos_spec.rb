@@ -8,7 +8,25 @@ describe 'Excecaos API' do
       parameter name: :excecao, in: :body, schema: {
         type: :object,
         proprieties: {
-
+          acao: {
+            acaoNome: { type: :string },
+            acaoClasse: { type: :string },
+          },
+          excecao: {
+            error: { type: :string },
+          },
+          http: {
+            viewReferer: { type: :string },
+            viewUrl: { type: :string },
+            viewMethod: { type: :string },
+          },
+          objSessao: {
+            objText: { type: :string },
+          },
+          parametros: [{
+            paramTipo: { type: :string },
+            paramNome: { type: :string },
+          }]
         },
         required: []
       } 

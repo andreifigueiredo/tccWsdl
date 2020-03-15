@@ -32,12 +32,17 @@ describe 'Excecaos API' do
       } 
 
       response '201', 'excecao created' do
-        let(:excecao) { {} }
+        let(:excecao) { { acao: { acaoNome: "acaoNomeTeste", acaoClasse: "acaoClasseTeste" }, 
+                          excecao: { error: "errorTeste" },
+                          http: { viewReferer: "viewRefererTeste", viewUrl: "viewUrlTeste", viewMethod: "viewMethod" },
+                          objSessao: { objText: "objTextTeste" },
+                          parametros: { paramTipo: "paramTipoTeste", paramNome: "paramNomeTeste" } 
+                      } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:excecao) { {} }
+        let(:excecao) { { invalidParam: "paramAleatorioNListado"} }
         run_test!
       end
     end

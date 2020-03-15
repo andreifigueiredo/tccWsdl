@@ -29,4 +29,6 @@ module ExcecaoHelper
       puts newSess.id
       newObj = newSess.create_obj_sessao(obj_text: obj_text)
       puts newObj.id
+
+      return newExc 
     end

@@ -30,7 +30,7 @@
   background-color: #eee; /* Grey background color */
   color: black; /* Black text color */
   display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
+  padding: 6px; /* Add some padding */
   text-decoration: none; /* Remove underline from links */
 }
 
@@ -45,6 +45,7 @@
 
 .core-page {
   display: flex;
+  margin: 0;
 }
 
 .vertical-menu_container {

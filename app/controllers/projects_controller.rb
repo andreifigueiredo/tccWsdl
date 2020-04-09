@@ -11,6 +11,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    excecao_counts = @project.excecaos.group(:error).count
+    @excecaos_count = []
+    @excecaos = []
+    excecao_counts.each do |excecao_count|
+      @excecaos_count << excecao_count[1]
+      @excecaos << Excecao.where(error: excecao_count[0]).last
+    end
   end
 
   # GET /projects/new

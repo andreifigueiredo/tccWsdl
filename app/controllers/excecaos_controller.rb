@@ -3,7 +3,7 @@ class ExcecaosController < ApplicationController
   before_action :set_excecao, only: [:show]
 
   def index
-    @excecaos = Excecao.all.group(:error)
+    @excecaos = Excecao.all.group(:error).count
   end
 
   def show

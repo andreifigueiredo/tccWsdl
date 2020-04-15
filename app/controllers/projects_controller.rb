@@ -12,11 +12,27 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     excecao_counts = @project.excecaos.group(:error).count
-    @excecaos_count = []
-    @excecaos = []
+    @excecaos_n_atribuido_count = []
+    @excecaos_n_atribuido = []
+    @excecaos_atribuido_count = []
+    @excecaos_atribuido = []
+    @excecaos_resolvido_count = []
+    @excecaos_resolvido = []
     excecao_counts.each do |excecao_count|
-      @excecaos_count << excecao_count[1]
-      @excecaos << Excecao.where(error: excecao_count[0]).last
+      @excecao = Excecao.where(error: excecao_count[0]).last
+      
+      # binding.pry
+      
+      if @excecao.dono_excecao.developer_id.nil?
+        @excecaos_n_atribuido_count << excecao_count[1]
+        @excecaos_n_atribuido << @excecao
+      elsif @excecao.dono_excecao.solved == true
+        @excecaos_resolvido_count << excecao_count[1]
+        @excecaos_resolvido << @excecao
+      else
+        @excecaos_atribuido_count << excecao_count[1]
+        @excecaos_atribuido << @excecao
+      end
     end
   end
 

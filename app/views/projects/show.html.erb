@@ -9,28 +9,101 @@
  <strong>Exceções:</strong> 
 <%
 =end%>
-    <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
-    <thead>
-      <tr>
-        <th data-data="error">Error</th>
-        <th data-data="error">Responsável</th>
-        <th data-data="created_at">Ocorrências</th>
-        <th></th>
-        <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
-      </tr>
-      <% @excecaos.each_with_index do |excecao, index| %>
-        <tr>
-          <td><%= excecao.error %></td>
-          <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
-            <%= excecao.dono_excecao.developer.email %>
-          <% end %></td>
-          <td><%= @excecaos_count[index] %></td>
-          <td><%= link_to 'Detalhes', excecao %></td>
-        </tr>
-      <% end %>
-    </thead>
+    <div class="pc-tab">
+      <input checked="checked" id="tab1" type="radio" name="pct" />
 
-  </table>
+      <input id="tab2" type="radio" name="pct" />
+
+      <input id="tab3" type="radio" name="pct" />
+      <nav>
+        <ul>
+          <li class="tab1">
+            <label for="tab1">NÃO ATRIBUIDO</label>
+          </li>
+
+          <li class="tab2">
+            <label for="tab2">ATRIBUIDO</label>
+          </li>
+
+          <li class="tab3">
+            <label for="tab3">RESOLVIDO</label>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <div class="tab1 graph">
+          <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <thead>
+            <tr>
+              <th data-data="error">Error</th>
+              <th data-data="error">Responsável</th>
+              <th data-data="created_at">Ocorrências</th>
+              <th></th>
+              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+            </tr>
+          </thead>
+          <% @excecaos_n_atribuido.each_with_index do |excecao, index| %>
+            <tr>
+              <td><%= excecao.error %></td>
+              <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
+                <%= excecao.dono_excecao.developer.email %>
+              <% end %></td>
+              <td><%= @excecaos_n_atribuido_count[index] %></td>
+              <td><%= link_to 'Detalhes', excecao %></td>
+            </tr>
+          <% end %>
+        </table>
+        </div>
+
+        <div class="tab2 graph">
+          <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <thead>
+            <tr>
+              <th data-data="error">Error</th>
+              <th data-data="error">Responsável</th>
+              <th data-data="created_at">Ocorrências</th>
+              <th></th>
+              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+            </tr>
+          </thead>
+          <% @excecaos_atribuido.each_with_index do |excecao, index| %>
+            <tr>
+              <td><%= excecao.error %></td>
+              <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
+                <%= excecao.dono_excecao.developer.email %>
+              <% end %></td>
+              <td><%= @excecaos_atribuido_count[index] %></td>
+              <td><%= link_to 'Detalhes', excecao %></td>
+            </tr>
+          <% end %>
+        </table>
+        </div>
+
+        <div class="tab3 graph">
+          <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <thead>
+            <tr>
+              <th data-data="error">Error</th>
+              <th data-data="error">Responsável</th>
+              <th data-data="created_at">Ocorrências</th>
+              <th></th>
+              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
+            </tr>
+          </thead>
+          <% @excecaos_resolvido.each_with_index do |excecao, index| %>
+            <tr>
+              <td><%= excecao.error %></td>
+              <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
+                <%= excecao.dono_excecao.developer.email %>
+              <% end %></td>
+              <td><%= @excecaos_resolvido_count[index] %></td>
+              <td><%= link_to 'Detalhes', excecao %></td>
+            </tr>
+          <% end %>
+        </table>
+        </div>
+      </section>
+    </div>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

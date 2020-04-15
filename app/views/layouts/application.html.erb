@@ -15,7 +15,7 @@
           <div class="vertical-menu">
             <%= link_to 'Projetos', projects_path %>
             <% if current_developer.team.present? && current_developer.team.project.present? %>
-              <li class="list-group-item"><%= link_to 'Meu Projeto', project_path(current_developer.project) %></li>
+              <%= link_to 'Meu Projeto', project_path(current_developer.team.project) %>
             <% end %>
             <% if current_developer.admin %>
               <%= link_to 'Criar Novo Projeto', new_project_path %>

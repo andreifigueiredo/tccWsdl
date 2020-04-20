@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Installation
+Run ruby setup_server
+Run rails s

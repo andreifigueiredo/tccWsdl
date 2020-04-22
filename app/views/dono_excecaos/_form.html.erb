@@ -21,6 +21,11 @@
     <%= form.label :solved %>
   </div>
 
+  <div class="field">
+    <%= form.label :evaluate %>
+    <%= form.select :evaluate, DonoExcecao.evaluates.keys.map {|evaluate| [evaluate.titleize, evaluate]} %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -12,23 +12,28 @@
 
 <p>
   <strong>Desenvolvedores:</strong>
-  <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <table class="responsive nowrap table table-hover" id="all_devs" data-sort="true">
   <thead>
     <tr>
       <th data-data="email">Email</th>
       <th></th>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
+  </thead>
     <% @team.developers.each do |developer|%>
       <tr>
         <td><%= developer.email %></td>
         <td><%= link_to 'Detalhes', developer %></td>
       </tr>
     <% end %>
-  </thead>
 
 </table>
 </p>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
+
+<script>
+  $(document).ready( function () {
+    $('#all_devs').DataTable();
+  } );
+</script>

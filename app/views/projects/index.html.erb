@@ -1,19 +1,18 @@
 <h1>Projects</h1>
 
-<table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+<table class="responsive nowrap table table-hover" id="all_projects" data-sort="true">
   <thead>
     <tr>
       <th data-data="name">Name</th>
       <th></th>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
     </tr>
+  </thead>
     <% @projects.each do |project|%>
       <tr>
         <td><%= project.name %></td>
         <td><%= link_to 'Detalhes', project %></td>
       </tr>
     <% end %>
-  </thead>
 
 </table>
 
@@ -21,3 +20,9 @@
 
 <%= link_to 'Novo Projeto', new_project_path %> |
 <%= link_to 'Home', root_path %>
+
+<script>
+  $(document).ready( function () {
+    $('#all_projects').DataTable();
+  } );
+</script>

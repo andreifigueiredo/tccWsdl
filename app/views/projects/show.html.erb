@@ -32,14 +32,13 @@
       </nav>
       <section>
         <div class="tab1 graph">
-          <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <table class="responsive nowrap table table-hover" id="table_n_atribuido" data-sort="true">
           <thead>
             <tr>
               <th data-data="error">Error</th>
-              <th data-data="error">Responsável</th>
+              <th data-data="email">Responsável</th>
               <th data-data="created_at">Ocorrências</th>
               <th></th>
-              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
             </tr>
           </thead>
           <% @excecaos_n_atribuido.each_with_index do |excecao, index| %>
@@ -56,14 +55,13 @@
         </div>
 
         <div class="tab2 graph">
-          <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <table class="responsive nowrap table table-hover" id="table_atribuido" data-sort="true">
           <thead>
             <tr>
               <th data-data="error">Error</th>
-              <th data-data="error">Responsável</th>
+              <th data-data="email">Responsável</th>
               <th data-data="created_at">Ocorrências</th>
               <th></th>
-              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
             </tr>
           </thead>
           <% @excecaos_atribuido.each_with_index do |excecao, index| %>
@@ -80,14 +78,13 @@
         </div>
 
         <div class="tab3 graph">
-          <table class="responsive nowrap table table-hover" id="dttb-projects" data-sort="true" data-source="<%= url_for(format: :json)%>">
+          <table class="responsive nowrap table table-hover" id="table_pronto" data-sort="true">
           <thead>
             <tr>
               <th data-data="error">Error</th>
-              <th data-data="error">Responsável</th>
+              <th data-data="email">Responsável</th>
               <th data-data="created_at">Ocorrências</th>
               <th></th>
-              <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px"></th>
             </tr>
           </thead>
           <% @excecaos_resolvido.each_with_index do |excecao, index| %>
@@ -109,3 +106,18 @@
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %> |
 <%= link_to 'Home', root_path %>
+
+
+<script>
+  $(document).ready( function () {
+    $('#table_atribuido').DataTable();
+  } );
+
+  $(document).ready( function () {
+    $('#table_n_atribuido').DataTable();
+  } );
+
+  $(document).ready( function () {
+    $('#table_pronto').DataTable();
+  } );
+</script>

@@ -6,6 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+- Ver gemfile
 
 * System dependencies
 
@@ -23,6 +24,5 @@ Things you may want to cover:
 
 * ...
 
-Installation
-Run ruby setup_server
-Run rails s
+Installation: ruby setup_server
+Run server: rails s

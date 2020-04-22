@@ -1,6 +1,6 @@
 <h1><%= plural_table_name.titleize %></h1>
 
-<table class="responsive nowrap table table-hover" id="dttb-<%= plural_table_name %>" data-sort="true" data-source="<%%= url_for(format: :json)%>">
+<table class="responsive nowrap table table-hover" id="all_users" data-sort="true">
   <thead>
     <tr>
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
@@ -15,3 +15,9 @@
 <br>
 
 <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path %>
+
+<script>
+  $(document).ready( function () {
+    $('#all_users').DataTable();
+  } );
+</script>

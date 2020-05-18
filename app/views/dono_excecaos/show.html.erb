@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Exceção:</strong>
+  <strong><%= t('exception') %>:</strong>
   <%= @dono_excecao.excecao.error %>
 </p>
 
 <p>
-  <strong>Developer:</strong>
+  <strong><%= t('developer') %>:</strong>
   <%= @dono_excecao.developer.email %>
 </p>
 
-<%= link_to 'Edit', edit_dono_excecao_path(@dono_excecao) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to t('edit'), edit_dono_excecao_path(@dono_excecao) %> |
+<%= link_to t('back'), projects_path %>

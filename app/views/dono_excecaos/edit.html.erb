@@ -1,5 +1,5 @@
-<h1>Atribua um responsável</h1>
+<h1><%= t('donoExcecao.editTitle') %></h1>
 
 <%= render 'form', dono_excecao: @dono_excecao %>
 
-<%= link_to 'Back', @dono_excecao %>
+<%= link_to t('back'), "/excecaos/#{@dono_excecao.excecao_id}" %>

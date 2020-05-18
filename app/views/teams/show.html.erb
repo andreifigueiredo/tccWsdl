@@ -1,36 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('team.name') %>:</strong>
   <%= @team.name %>
 </p>
 
 <p>
-  <strong>Project:</strong>
+  <strong><%= t('team.project') %>:</strong>
   <%= @team.project.name %>
 </p>
 
 <p>
-  <strong>Desenvolvedores:</strong>
+  <strong><%= t('developers') %>:</strong>
   <table class="responsive nowrap table table-hover" id="all_devs" data-sort="true">
   <thead>
     <tr>
       <th data-data="email">Email</th>
+      <th data-data="ownered"><%= t('team.assigned') %></th>
+      <th data-data="solved"><%= t('team.solved') %></th>
       <th></th>
     </tr>
   </thead>
     <% @team.developers.each do |developer|%>
       <tr>
         <td><%= developer.email %></td>
-        <td><%= link_to 'Detalhes', developer %></td>
+        <td><%= developer.ownered_count %></td>
+        <td><%= developer.solved_count %></td>
+        <td><%= link_to t('show'), developer %></td>
       </tr>
     <% end %>
 
 </table>
 </p>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to t('edit'), edit_team_path(@team) %> |
+<%= link_to t('back'), teams_path %>
 
 <script>
   $(document).ready( function () {

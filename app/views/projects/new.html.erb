@@ -1,5 +1,4 @@
-<h1>New Project</h1>
+<h1><%= t('project.newTitle') %></h1>
 
 <%= render 'form', project: @project %>
-<%= link_to 'Projetos', projects_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to t('projects'), projects_path %>

@@ -5,27 +5,43 @@
 <%= @excecao.error %>
 <br>
 
+<p>
+<strong><%= t('exception.createdAt') %>:</strong>
+<%= @excecao.created_at.to_time.strftime("%d/%m/%Y") %>
+
 <% if @excecao.dono_excecao.present? && @excecao.dono_excecao.developer.present? %>
   <p>
-  <strong>Responsável:</strong>
+  <strong><%= t('exception.owner') %>:</strong>
   <%= @excecao.dono_excecao.developer.email %>
+
+  <p>
+  <strong><%= t('exception.assignAt') %>:</strong>
+  <%= @excecao.dono_excecao.created_at.strftime("%d/%m/%Y") %>
+
+  <% if @excecao.dono_excecao.solved %>
+    <p>
+    <strong><%= t('exception.solvedAt') %>:</strong>
+    <%= @excecao.dono_excecao.updated_at.to_time.strftime("%d/%m/%Y")%>
+  <% end %>
+
 <% end %>
 
 <% if @excecao.acao.present? %>
   <p>
-  <strong>Nome da action:</strong>
+  <strong><%= t('exception.actionName') %>:</strong>
   <%= @excecao.acao.nome %>
   <br>
 
   <p>
-  <strong>Classe da action:</strong>
+  <strong><%= t('exception.actionClass') %>:</strong>
   <%= @excecao.acao.classe %>
   <br>
 
 <% end %>
 
+
 <% if @excecao.parametros.present? %>
-  <strong>Parametros</strong>
+  <strong><%= t('exception.params') %>:</strong>
   |<% @exceao.parametros.each do |parametro| %>
     <%= parametro.name %> |
   <% end %>
@@ -34,7 +50,7 @@
 
 <% if @excecao.http.present? %>
   <p>
-  <strong>Referer:</strong>
+  <strong><%= t('exception.referer') %>:</strong>
   <%= @excecao.http.referer %>
   <br>
 
@@ -44,7 +60,7 @@
   <br>
 
   <p>
-  <strong>Método da view:</strong>
+  <strong><%= t('exception.viewMethod') %>:</strong>
   <%= @excecao.http.method %>
   <br>
 <% end %>
@@ -52,7 +68,7 @@
 
 <% if @excecao.sessao.present? %>
   <p>
-  <strong>Objeto da sessao:</strong>
+  <strong><%= t('exception.sessionObject') %>:</strong>
   <%= @excecao.sessao.obj_sessao.obj_text %>
   <br>
 <% end %>
@@ -63,7 +79,6 @@
  <% binding.pry %> 
 <%
 =end%>
-  <%= link_to 'Desginar Responsável', edit_dono_excecao_path(@dono_excecao) %>  |
+  <%= link_to t('donoExcecao.editTitle'), edit_dono_excecao_path(@dono_excecao) %>  |
 <% end %>
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to t('back'), projects_path %>

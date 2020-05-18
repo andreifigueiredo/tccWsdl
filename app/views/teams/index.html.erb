@@ -1,17 +1,17 @@
-<h1>Equipes</h1>
+<h1><%= t('teams') %></h1>
 
 <table class="responsive nowrap table table-hover" id="all_teams" data-sort="true">
   <thead>
     <tr>
-      <th data-data="name">Name</th>
-      <th data-data="project">Project</th>
+      <th data-data="name"><%= t('team.name') %></th>
+      <th data-data="project"><%= t('team.project') %></th>
     </tr>
   </thead>
     <% @teams.each do |team|%>
       <tr>
         <td><%= team.name %></td>
         <td><%= team.project.name %></td>
-        <td><%= link_to 'Detalhes', team %></td>
+        <td><%= link_to t('show'), team %></td>
       </tr>
     <% end %>
 
@@ -19,8 +19,7 @@
 
 <br>
 
-<%= link_to 'Nova Equipe', new_team_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to t('team.newTitle'), new_team_path %>
 
 <script>
   $(document).ready( function () {

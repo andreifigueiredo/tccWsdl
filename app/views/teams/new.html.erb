@@ -1,5 +1,5 @@
-<h1>Nova Equipe</h1>
+<h1><%= t('team.newTitle') %></h1>
 
 <%= render 'form', team: @team %>
 
-<%= link_to 'Back', teams_path %>
+<%= link_to t('back'), teams_path %>

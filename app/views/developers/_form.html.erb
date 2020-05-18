@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.check_box :admin %>
-    <%= form.label :admin %>
+    <%= form.label :admin, t('developer.role') %>
+    <%= form.select :admin, [[t('developer.admin'), true], [t('developer.developer'), false]] %>
   </div>
 
   <div class="field">
-    <%= form.label :team_id %>
+    <%= form.label :team_id, t('developer.team') %>
     <%= form.select :team_id, @teams.collect { |team| [team.name, team.id] }  %>
   </div>
 

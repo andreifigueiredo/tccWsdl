@@ -1,9 +1,9 @@
-<h1>Projects</h1>
+<h1><%= t('projects') %></h1>
 
 <table class="responsive nowrap table table-hover" id="all_projects" data-sort="true">
   <thead>
     <tr>
-      <th data-data="name">Name</th>
+      <th data-data="name"><%= t('project.name') %></th>
       <th></th>
     </tr>
   </thead>
@@ -18,8 +18,7 @@
 
 <br>
 
-<%= link_to 'Novo Projeto', new_project_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to t('project.newTitle'), new_project_path %>
 
 <script>
   $(document).ready( function () {

@@ -1,11 +1,11 @@
-<h1>Developers</h1>
+<h1><%= t('developers') %></h1>
 
 <table class="responsive nowrap table table-hover" id="all_developers" data-sort="true">
   <thead>
     <tr>
       <th data-data="email">Email</th>
       <th data-data="admin">Admin</th>
-      <th data-data="name">Equipe</th>
+      <th data-data="name"><%= t('developer.team') %></th>
       <th></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
         <td><%= developer.email %></td>
         <td><%= developer.admin %></td>
         <td><%= developer.team && developer.team.name %></td>
-        <td><%= link_to 'Detalhes', developer %></td>
+        <td><%= link_to t('show'), developer %></td>
       </tr>
     <% end %>
 
@@ -27,7 +27,6 @@
  <%= link_to 'New developer', new_developer_path %> | 
 <%
 =end%>
-<%= link_to 'Home', root_path %>
 
 <script>
   $(document).ready( function () {

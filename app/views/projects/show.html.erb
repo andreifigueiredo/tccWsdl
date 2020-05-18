@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t('project.name') %>:</strong>
   <%= @project.name %>
   <br>
   <%
@@ -18,15 +18,15 @@
       <nav>
         <ul>
           <li class="tab1">
-            <label for="tab1">NÃO ATRIBUIDO</label>
+            <label for="tab1"><%= t('project.notAssigned') %></label>
           </li>
 
           <li class="tab2">
-            <label for="tab2">ATRIBUIDO</label>
+            <label for="tab2"><%= t('project.assigned') %></label>
           </li>
 
           <li class="tab3">
-            <label for="tab3">RESOLVIDO</label>
+            <label for="tab3"><%= t('project.solved') %></label>
           </li>
         </ul>
       </nav>
@@ -36,8 +36,8 @@
           <thead>
             <tr>
               <th data-data="error">Error</th>
-              <th data-data="email">Responsável</th>
-              <th data-data="created_at">Ocorrências</th>
+              <th data-data="email"><%= t('project.owner') %></th>
+              <th data-data="created_at"><%= t('project.occurrences') %></th>
               <th></th>
             </tr>
           </thead>
@@ -59,8 +59,8 @@
           <thead>
             <tr>
               <th data-data="error">Error</th>
-              <th data-data="email">Responsável</th>
-              <th data-data="created_at">Ocorrências</th>
+              <th data-data="email"><%= t('project.owner') %></th>
+              <th data-data="created_at"><%= t('project.owner') %></th>
               <th></th>
             </tr>
           </thead>
@@ -82,8 +82,8 @@
           <thead>
             <tr>
               <th data-data="error">Error</th>
-              <th data-data="email">Responsável</th>
-              <th data-data="created_at">Ocorrências</th>
+              <th data-data="email"><%= t('project.owner') %></th>
+              <th data-data="created_at"><%= t('project.owner') %></th>
               <th></th>
             </tr>
           </thead>
@@ -103,9 +103,8 @@
     </div>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %> |
-<%= link_to 'Home', root_path %>
+<%= link_to t('edit'), edit_project_path(@project) %> |
+<%= link_to t('back'), projects_path %>
 
 
 <script>

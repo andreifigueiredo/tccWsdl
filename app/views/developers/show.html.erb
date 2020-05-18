@@ -6,14 +6,18 @@
 </p>
 
 <p>
-  <strong>Admin:</strong>
-  <%= @developer.admin %>
+  <strong><%= t('developer.Role') %>:</strong>
+  <% if @developer.admin %>
+    <%= t('developer.Admin') %>
+  <% else %>
+    <%= t('developer.Developer') %>
+  <% end %>
 </p>
 
 <p>
-  <strong>Equipe:</strong>
+  <strong><%= t('developer.team') %>:</strong>
   <%= @developer.team && @developer.team.name %>
 </p>
 
-<%= link_to 'Edit', edit_developer_path(@developer) %> | 
-<%= link_to 'Back', developers_path %>
+<%= link_to t('edit'), edit_developer_path(@developer) %> | 
+<%= link_to t('back'), developers_path %>

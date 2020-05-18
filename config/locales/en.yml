@@ -31,3 +31,31 @@
 
 en:
   hello: "Hello world"
+  appTittle: "Welcome to the Exception Monitor"
+  logIn: "Log in"
+  logOut: "Log out"
+  projects: "Projects"
+  myProject: "My Project"
+  createNewProject: "Create New Project"
+  teams: "Teams"
+  createTem: "Create Team"
+  developers: "Developers"
+  inviteDeveloper: "Inivite Developer"
+  show: "Show"
+  edit: "Edit"
+  back: "Back"
+  developer:
+    role: "Role"
+    admin: "Admin"
+    developer: "Developer"
+    team: "Team"
+  donoExcecao:
+    editTitle: "Assign a Owner"
+  project:
+    newTitle: "New Project"
+  
+  activerecord:
+    models:
+      dono_excecao:
+        one: "Exception Owner"
+        other: "Exception Owners"

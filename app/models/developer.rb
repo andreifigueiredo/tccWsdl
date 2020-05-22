@@ -19,6 +19,7 @@ class Developer < ApplicationRecord
     end
     count
   end
+
   def solved_count
     count = 0
     self.dono_excecaos.each do |dono_excecao|
@@ -28,6 +29,14 @@ class Developer < ApplicationRecord
     end
     count
   end
+
+  def idle?
+    if (self.ownered_count - self.solved_count) > 0
+      I18n.t('negative')
+    else
+      I18n.t('positive')
+    end
+  end 
 
   private
 

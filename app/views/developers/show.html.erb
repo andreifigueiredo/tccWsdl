@@ -19,5 +19,31 @@
   <%= @developer.team && @developer.team.name %>
 </p>
 
+
+<p>
+  <strong><%= t('developer.notAssigned') %> </strong>
+</p>
+
+<table class="responsive nowrap table table-hover" id="table_n_atribuido" data-sort="true">
+  <thead>
+    <tr>
+      <th data-data="error">Error</th>
+      <th data-data="email"><%= t('project.owner') %></th>
+      <th data-data="created_at"><%= t('project.occurrences') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @excecaos_n_atribuido.each_with_index do |excecao, index| %>
+    <tr>
+      <td><%= excecao.error %></td>
+      <td><% if excecao.dono_excecao.present? && excecao.dono_excecao.developer.present? %>
+        <%= excecao.dono_excecao.developer.email %>
+      <% end %></td>
+      <td><%= @excecaos_n_atribuido_count[index] %></td>
+      <td><%= link_to 'Detalhes', excecao %></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to t('edit'), edit_developer_path(@developer) %> | 
 <%= link_to t('back'), developers_path %>

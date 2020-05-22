@@ -44,11 +44,15 @@ en:
   show: "Show"
   edit: "Edit"
   back: "Back"
+  negative: "No"
+  positive: "Yes"
   developer:
     role: "Role"
     admin: "Admin"
     developer: "Developer"
     team: "Team"
+    notAssigned: "Errors not assigned"
+
   donoExcecao:
     editTitle: "Assign a Owner"
   project:

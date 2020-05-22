@@ -13,11 +13,15 @@ pt-BR:
   show: "Detalhes"
   edit: "Editar"
   back: "Voltar"
+  negative: "Não"
+  positive: "Sim"
   developer:
     role: "Perfil"
     admin: "Administrador"
     developer: "Desenvolvedor"
     team: "Equipe"
+    idle: "Ocioso"
+    notAssigned: "Erros não atribuidos"
   donoExcecao:
     editTitle: "Atribua um responsável"
   exception:

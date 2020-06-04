@@ -72,13 +72,8 @@
   <%= @excecao.sessao.obj_sessao.obj_text %>
   <br>
 <% end %>
-
 <% if current_developer.admin && @dono_excecao.present?%>
-<%
-=begin%>
- <% binding.pry %> 
-<%
-=end%>
-  <%= link_to t('donoExcecao.editTitle'), edit_dono_excecao_path(@dono_excecao) %>  |
+  <%= render "dono_excecaos/edit", dono_excecao: @dono_excecao %>
 <% end %>
+
 <%= link_to t('back'), projects_path %>

@@ -6,7 +6,8 @@
       <th data-data="email">Email</th>
       <th data-data="admin">Admin</th>
       <th data-data="name"><%= t('developer.team') %></th>
-      <th data-data="idle"><%= t('developer.idle') %></th>
+      <th data-data="ownered"><%= t('team.assigned') %></th>
+      <th data-data="solved"><%= t('team.solved') %></th>
       <th></th>
     </tr>
   </thead>
@@ -15,7 +16,8 @@
         <td><%= developer.email %></td>
         <td><%= developer.admin %></td>
         <td><%= developer.team && developer.team.name %></td>
-        <td><%= developer.idle? %></td>
+        <td><%= developer.ownered_count %></td>
+        <td><%= developer.solved_count %></td>
         <td><%= link_to t('show'), developer %></td>
       </tr>
     <% end %>

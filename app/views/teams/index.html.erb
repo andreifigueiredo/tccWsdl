@@ -5,12 +5,16 @@
     <tr>
       <th data-data="name"><%= t('team.name') %></th>
       <th data-data="project"><%= t('team.project') %></th>
+      <th data-data="developers"><%= t('project.developers') %></th>
+      <th></th>
     </tr>
   </thead>
     <% @teams.each do |team|%>
       <tr>
         <td><%= team.name %></td>
         <td><%= team.project.name %></td>
+        <td><%= team.developers.count %></td>
+
         <td><%= link_to t('show'), team %></td>
       </tr>
     <% end %>

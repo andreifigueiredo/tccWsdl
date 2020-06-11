@@ -4,12 +4,20 @@
   <thead>
     <tr>
       <th data-data="name"><%= t('project.name') %></th>
+      <th data-data="done"><%= t('exception.done') %></th>
+      <th data-data="pending"><%= t('exception.pending') %></th>
+      <th data-data="assigned"><%= t('exception.assigned') %></th>
+      <th data-data="developers"><%= t('project.developers') %></th>
       <th></th>
     </tr>
   </thead>
     <% @projects.each do |project|%>
       <tr>
         <td><%= project.name %></td>
+        <td><%= project.done_exceptions %></td>
+        <td><%= project.pending_exceptions %></td>
+        <td><%= project.assigned_exceptions %></td>
+        <td><%= project.developers_count %></td>
         <td><%= link_to 'Detalhes', project %></td>
       </tr>
     <% end %>

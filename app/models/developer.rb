@@ -11,13 +11,7 @@ class Developer < ApplicationRecord
   before_validation :default_admin,  if: -> {self.admin.nil?}
 
   def ownered_count
-    count = 0
-    self.dono_excecaos.each do |dono_excecao|
-      unless dono_excecao.solved
-        count = count+1
-      end
-    end
-    count
+    self.dono_excecaos.count
   end
 
   def solved_count
@@ -27,7 +21,7 @@ class Developer < ApplicationRecord
         count = count+1
       end
     end
-    count
+    solved_percentage = "#{(count.to_f/self.dono_excecaos.count)*100}%"
   end
 
   def idle?

@@ -35,20 +35,24 @@ pt-BR:
     referer: "Referenciador"
     viewMethod: "Método da View"
     sessionObject: "Objeto da Sessão"
+    pending: "Total de Pendentes"
+    assigned: "Total de Atribuidos"
+    done: "Porcentagem de concluídos"
   project:
     newTitle: "Novo Projeto"
     name: "Nome"
     notAssigned: "Não Atribuido"
     assigned: "Atribuido"
-    solved: "Resolvido"
+    solved: "Concluidos"
     owner: "Responsável"
     occurrences: "Ocorrências"
+    developers: "Desenvolvedores"
   team:
     newTitle: "Nova Equipe"
     name: "Nome"
     project: "Projeto"
-    assigned: "Atribuído"
-    solved: "Resolvido"
+    assigned: "Atribuidos"
+    solved: "Concluidos"
 
   activerecord:
     models:
@@ -63,7 +67,7 @@ pt-BR:
         other: "Projetos"
     attributes:
       dono_excecao:
-        solved: "Resolvido"
+        solved: "Concluidos"
         evaluate: "Avaliação"
         developer_id: "Desenvolvedor"
       project:

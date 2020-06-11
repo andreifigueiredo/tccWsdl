@@ -23,7 +23,10 @@
 
   <div class="field">
     <%= form.label :evaluate %>
-    <%= form.select :evaluate, DonoExcecao.evaluates.keys.map {|evaluate| [evaluate.titleize, evaluate]} %>
+    <% DonoExcecao.evaluates.keys.each do |evaluate| %>
+      <br><%= radio_button_tag 'evaluate', evaluate, @evaluate == evaluate %>
+      <%= evaluate.humanize %>
+    <% end %>
   </div>
 
   <div class="actions">

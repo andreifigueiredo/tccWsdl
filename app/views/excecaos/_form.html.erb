@@ -13,7 +13,10 @@
 
   <div class="field">
     <%= form.label :developer_id %>
-    <%= form.select :developer_id, @developers.collect { |developer| [developer.email, developer.id] }  %>
+    <% @developers.each do |developer| %>
+      <br><%= radio_button_tag 'dono_excecao[developer_id]', developer.id %>
+      <%= developer.email.humanize %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -24,7 +27,7 @@
   <div class="field">
     <%= form.label :evaluate %>
     <% DonoExcecao.evaluates.keys.each do |evaluate| %>
-      <br><%= radio_button_tag 'evaluate', evaluate, @evaluate == evaluate %>
+      <br><%= radio_button_tag 'dono_excecao[evaluate]', evaluate %>
       <%= evaluate.humanize %>
     <% end %>
   </div>

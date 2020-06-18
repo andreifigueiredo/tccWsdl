@@ -14,6 +14,7 @@ class DonoExcecaosController < ApplicationController
 # PATCH/PUT /dono_excecaos/1
   # PATCH/PUT /dono_excecaos/1.json
   def update
+    binding.pry
     respond_to do |format|
       if @dono_excecao.update(dono_excecao_params)
         format.html { redirect_to @dono_excecao, notice: 'dono_excecao was successfully updated.' }
@@ -33,7 +34,7 @@ class DonoExcecaosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dono_excecao_params
-      params.require(:dono_excecao).permit(:developer_id, :solved)
+      params.require(:dono_excecao).permit(:developer_id, :solved, :evaluate)
     end
 
     def get_developers

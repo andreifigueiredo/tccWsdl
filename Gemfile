@@ -70,11 +70,6 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.11.1'
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'pry-rails', '~> 0.3.9'
-  gem 'shoulda-matchers', '~> 4.0.1'
-  gem 'shoulda-callback-matchers', '~> 1.1.1'
-  gem 'rails-controller-testing', '~> 1.0.4'
-  gem 'database_cleaner', '~> 1.7.0'
-  gem 'simplecov', require: false
 end
 
 group :development do
@@ -87,6 +82,11 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers', '~> 4.0.1'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'rails-controller-testing', '~> 1.0.4'
+  gem 'database_cleaner', '~> 1.7.0'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

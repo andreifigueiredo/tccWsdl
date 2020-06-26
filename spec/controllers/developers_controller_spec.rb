@@ -1,12 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe DevelopersController, type: :controller do
-
-  describe "GET #new" do
-    it "returns http success" do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
-
+  pending "add some examples to (or delete) #{__FILE__}"
 end

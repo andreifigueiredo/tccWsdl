@@ -14,7 +14,6 @@ class DonoExcecaosController < ApplicationController
 # PATCH/PUT /dono_excecaos/1
   # PATCH/PUT /dono_excecaos/1.json
   def update
-    binding.pry
     respond_to do |format|
       if @dono_excecao.update(dono_excecao_params)
         format.html { redirect_to @dono_excecao, notice: 'dono_excecao was successfully updated.' }

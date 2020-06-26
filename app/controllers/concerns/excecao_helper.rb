@@ -2,17 +2,20 @@ module ExcecaoHelper
   extend ActiveSupport::Concern
   
   included do
-    def create_excecoes params
-      acao_nome = params[:acao][:acaoNome]
-      acao_classe = params[:acao][:acaoClasse]
-      view_referer = params[:http][:viewReferer]
-      view_url = params[:http][:viewUrl]
-      view_method = params[:http][:viewMethod]
-      obj_text = params[:objSessao][:objText]
-      # a array of params
-      # param_tipo = params[:parametros][:paramTipo]
-      # param_nome = params[:parametros][:paramNome]
-      excecao_error = params[:excecao][:error]
+    def create_excecoes parametros
+
+      # binding.pry
+
+      acao_nome = parametros[:acao][:acaoNome]
+      acao_classe = parametros[:acao][:acaoClasse]
+      view_referer = parametros[:http][:viewReferer]
+      view_url = parametros[:http][:viewUrl]
+      view_method = parametros[:http][:viewMethod]
+      obj_text = parametros[:objSessao][:objText]
+      # a array of parametros
+      # param_tipo = parametros[:parametros][:paramTipo]
+      # param_nome = parametros[:parametros][:paramNome]
+      excecao_error = parametros[:excecao][:error]
 
       newAcao = Acao.create(nome: acao_nome, classe: acao_classe)
       puts newAcao.id
@@ -20,7 +23,7 @@ module ExcecaoHelper
       puts newExc.id
       newView = newExc.create_http(view_referer: view_referer, view_method: view_method, view_url: view_url)
       puts newView.id
-      params[:parametros].each do |parametro|
+      parametros[:parametros].each do |parametro|
         # binding.pry
         newPar = newExc.parametros.create(param_tipo: parametro[:paramTipo], param_nome: parametro[:paramNome])
         puts newPar.id
@@ -32,3 +35,5 @@ module ExcecaoHelper
 
       return newExc 
     end
+  end
+end

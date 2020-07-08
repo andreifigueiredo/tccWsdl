@@ -11,20 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :developer_id %>
-    <%= form.select :developer_id, @developers.collect { |developer| [developer.email, developer.id] }  %>
-  </div>
+  <% if current_developer.admin %>
+    <div class="field">
+      <%= form.label :developer_id %>
+      <%= form.select :developer_id, @developers.collect { |developer| [developer.email, developer.id] }  %>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= form.check_box :solved %>
-    <%= form.label :solved %>
-  </div>
+  <% if dono_excecao.developer_id.present? && (current_developer.id == dono_excecao.developer_id) %>
+    <div class="field">
+      <%= form.check_box :solved %>
+      <%= form.label :solved %>
+    </div>
 
-  <div class="field">
-    <%= form.label :evaluate %>
-    <%= form.select :evaluate, DonoExcecao.evaluates.keys.map {|evaluate| [evaluate.titleize, evaluate]} %>
-  </div>
+    <div class="field">
+      <%= form.label :evaluate %>
+      <%= form.select :evaluate, DonoExcecao.evaluates.keys.map {|evaluate| [evaluate.titleize, evaluate]} %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

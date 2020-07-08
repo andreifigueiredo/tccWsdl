@@ -37,7 +37,9 @@
             <tr>
               <th data-data="error">Error</th>
               <th data-data="email"><%= t('project.owner') %></th>
-              <th data-data="created_at"><%= t('project.occurrences') %></th>
+              <th data-data="occurrences"><%= t('project.occurrences') %></th>
+              <th data-data="created_at"><%= t('project.created_at_days') %></th>
+
               <th></th>
             </tr>
           </thead>
@@ -48,6 +50,7 @@
                 <%= excecao.dono_excecao.developer.email %>
               <% end %></td>
               <td><%= @excecaos_n_atribuido_count[index] %></td>
+              <td><%= excecao.created_at_days %> dias</td>
               <td><%= link_to 'Detalhes', excecao %></td>
             </tr>
           <% end %>
@@ -60,7 +63,8 @@
             <tr>
               <th data-data="error">Error</th>
               <th data-data="email"><%= t('project.owner') %></th>
-              <th data-data="created_at"><%= t('project.occurrences') %></th>
+              <th data-data="ocurrences"><%= t('project.occurrences') %></th>
+              <th data-data="assigned_at"><%= t('project.assigned_at_days') %></th>
               <th></th>
             </tr>
           </thead>
@@ -71,6 +75,7 @@
                 <%= excecao.dono_excecao.developer.email %>
               <% end %></td>
               <td><%= @excecaos_atribuido_count[index] %></td>
+              <td><%= excecao.assigned_at_days %> dias</td>
               <td><%= link_to 'Detalhes', excecao %></td>
             </tr>
           <% end %>
@@ -84,6 +89,7 @@
               <th data-data="error">Error</th>
               <th data-data="email"><%= t('project.owner') %></th>
               <th data-data="created_at"><%= t('project.occurrences') %></th>
+              <th data-data="done_at"><%= t('project.done_at_hours') %></th>
               <th></th>
             </tr>
           </thead>
@@ -94,6 +100,7 @@
                 <%= excecao.dono_excecao.developer.email %>
               <% end %></td>
               <td><%= @excecaos_resolvido_count[index] %></td>
+              <td><%= excecao.done_at_hours %> horas </td>
               <td><%= link_to 'Detalhes', excecao %></td>
             </tr>
           <% end %>

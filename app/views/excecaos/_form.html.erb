@@ -11,44 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :developer_id %>
-    <table class="responsive nowrap table table-hover" id="edit_dono_excecao" data-sort="true">
-      <thead>
+  <% if current_developer.admin %>
+
+    <div class="field">
+      <%= form.label :developer_id %>
+      <table class="responsive nowrap table table-hover" id="edit_dono_excecao" data-sort="true">
+        <thead>
+          <tr>
+            <th></th>
+            <th data-data="email">Email</th>
+            <th data-data="admin">Admin</th>
+            <th data-data="name"><%= t('developer.team') %></th>
+            <th data-data="solved"><%= t('team.solved') %></th>
+            <th data-data="ownered"><%= t('team.assigned') %></th>
+          </tr>
+        </thead>
+      <% @developers.each do |developer| %>
         <tr>
-          <th></th>
-          <th data-data="email">Email</th>
-          <th data-data="admin">Admin</th>
-          <th data-data="name"><%= t('developer.team') %></th>
-          <th data-data="solved"><%= t('team.solved') %></th>
-          <th data-data="ownered"><%= t('team.assigned') %></th>
+          <% if(developer.id == dono_excecao.developer_id) %>
+            <td><%= radio_button_tag 'dono_excecao[developer_id]', developer.id, checked: true %></td>
+          <% else %>
+            <td><%= radio_button_tag 'dono_excecao[developer_id]', developer.id %></td>
+          <% end %>
+          <td><%= developer.email %></td>
+          <td><%= developer.admin %></td>
+          <td><%= developer.team && developer.team.name %></td>
+          <td><%= developer.solved_count %></td>
+          <td><%= developer.ownered_count %></td>
         </tr>
-      </thead>
-    <% @developers.each do |developer| %>
-      <tr>
-        <td><%= radio_button_tag 'dono_excecao[developer_id]', developer.id %></td>
-        <td><%= developer.email %></td>
-        <td><%= developer.admin %></td>
-        <td><%= developer.team && developer.team.name %></td>
-        <td><%= developer.solved_count %></td>
-        <td><%= developer.ownered_count %></td>
-      </tr>
-    <% end %>
-    </table>
-  </div>
+      <% end %>
+      </table>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= form.check_box :solved %>
-    <%= form.label :solved %>
-  </div>
+  <% if dono_excecao.developer_id.present? && (current_developer.id == dono_excecao.developer_id) %>
+    <div class="field">
+      <%= form.label :solved %>
+      <%= form.radio_button :solved, false, :value => false%>
+      <%= t('negative') %>
+      <%= form.radio_button :solved, true, :value => true%>
+      <%= t('positive') %>
+    </div>
 
-  <div class="field">
-    <%= form.label :evaluate %>
-    <% DonoExcecao.evaluates.keys.each do |evaluate| %>
-      <br><%= radio_button_tag 'dono_excecao[evaluate]', evaluate %>
-      <%= evaluate.humanize %>
+    <div class="field">
+      <%= form.label :evaluate %>
+      <% DonoExcecao.evaluates.keys.each do |evaluate| %>
+        <br><%= radio_button_tag 'dono_excecao[evaluate]', evaluate %>
+        <%= evaluate.humanize %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :observation %>
+      <br><%= form.text_area :observation %>
+    </div>
     <% end %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

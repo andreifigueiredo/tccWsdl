@@ -12,4 +12,16 @@ class Excecao < ApplicationRecord
   def create_dono_excecao 
     DonoExcecao.create(excecao: self)
   end
+
+  def created_at_days
+    ((Time.now - self.created_at)/ 1.day).to_i
+  end
+
+  def assigned_at_days
+    ((Time.now - self.dono_excecao.created_at)/ 1.day).to_i
+  end
+
+  def done_at_hours
+    ((Time.now - self.dono_excecao.updated_at)/ 1.hour).to_i
+  end
 end

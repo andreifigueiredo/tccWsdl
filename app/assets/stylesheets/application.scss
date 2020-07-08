@@ -139,5 +139,43 @@ td {
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 400px;
+  max-width: 200px;
+}
+
+table {
+  max-width: 100vw;
+}
+
+.hamburguer-menu_container{
+  display: none;
+}
+
+.navbar.navbar-1 .navbar-toggler-icon {
+  background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
+}
+
+.navbar-light{
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 991px) {
+  /* start of large tablet styles */
+
+  .core-page{
+    display: block;
+  }
+  .vertical-menu_container {
+    display: none;
+  }
+  
+  .hamburguer-menu_container{
+    display: flex;
+    background-color: #eee; /* Grey background color */
+  }
+}
+
+@media (min-width: 768px){
+  .container {
+      max-width: 100%;
+  }
 }

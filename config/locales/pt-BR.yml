@@ -67,7 +67,7 @@ pt-BR:
         other: "Projetos"
     attributes:
       dono_excecao:
-        solved: "Concluidos"
+        solved: "Concluido"
         evaluate: "Avaliação"
         developer_id: "Desenvolvedor"
       project:

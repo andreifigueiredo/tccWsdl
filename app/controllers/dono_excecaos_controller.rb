@@ -33,7 +33,7 @@ class DonoExcecaosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dono_excecao_params
-      params.require(:dono_excecao).permit(:developer_id, :solved, :evaluate)
+      params.require(:dono_excecao).permit(:developer_id, :solved, :evaluate, :observation)
     end
 
     def get_developers

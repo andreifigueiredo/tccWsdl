@@ -1,0 +1,41 @@
+<% if developer_signed_in? %>
+  <div class="vertical-menu">
+    <%= link_to t('projects'), projects_path %>
+    <% if current_developer.team.present? && current_developer.team.project.present? %>
+      <%= link_to t('myProject'), project_path(current_developer.team.project) %>
+    <% end %>
+    <% if current_developer.admin %>
+      <%= link_to t('createNewProject'), new_project_path %>
+    <% end %>
+  </div>
+<% end %>
+<% if developer_signed_in? && current_developer.admin %>
+  <div class="breakitem"></div>
+  <div class="vertical-menu">
+    <%= link_to t('teams'), teams_path %>
+    <%= link_to t('createTeam'), new_team_path %>
+  </div> 
+<% end %>
+<% if developer_signed_in? && current_developer.admin %>
+  <div class="breakitem"></div>
+  <div class="vertical-menu">               
+    <%= link_to t('developers'), developers_path %>
+    <%= link_to t('inviteDeveloper'), new_developer_invitation_path %>
+  </div>
+<% end %>
+<% if developer_signed_in? %>
+  <div class="breakitem"></div>    
+  <div class="vertical-menu">
+    <%= link_to t('logOut'), destroy_developer_session_path, method: :delete %>
+  </div>
+<% else %>
+  <div class="vertical-menu">
+    <%= link_to t('logIn'), new_developer_session_path %>
+  </div>
+<% end %>
+<div class="breakitem"></div>    
+  <div class="vertical-menu">
+    <%= link_to "en", locale: "en" %>
+    <%= link_to "pt", locale: "pt-BR" %>
+  </div>
+</div>

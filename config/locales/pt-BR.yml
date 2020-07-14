@@ -10,9 +10,9 @@ pt-BR:
   createTeam: "Criar Equipe"
   developers: "Desenvolvedores"
   inviteDeveloper: "Convidar Desenvolvedor"
-  show: "Detalhes"
-  edit: "Editar"
-  back: "Voltar"
+  show: "DETALHES"
+  edit: "EDITAR"
+  back: "VOLTAR"
   negative: "Não"
   positive: "Sim"
   developer:
@@ -39,7 +39,7 @@ pt-BR:
     assigned: "Total Atribuidos"
     done: "Concluídos %"
   project:
-    newTitle: "Novo Projeto"
+    newTitle: "NOVO PROJETO"
     name: "Nome"
     notAssigned: "Não Atribuido"
     assigned: "Atribuido"
@@ -48,7 +48,7 @@ pt-BR:
     occurrences: "Ocorrências"
     developers: "Devs"
   team:
-    newTitle: "Nova Equipe"
+    newTitle: "NOVA EQUIPE"
     name: "Nome"
     project: "Projeto"
     assigned: "Atribuidos"

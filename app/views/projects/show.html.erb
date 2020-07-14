@@ -51,7 +51,7 @@
               <% end %></td>
               <td><%= @excecaos_n_atribuido_count[index] %></td>
               <td><%= excecao.created_at_days %> dias</td>
-              <td><%= link_to 'Detalhes', excecao %></td>
+              <td><%= link_to t('show'), excecao %></td>
             </tr>
           <% end %>
         </table>
@@ -76,7 +76,7 @@
               <% end %></td>
               <td><%= @excecaos_atribuido_count[index] %></td>
               <td><%= excecao.assigned_at_days %> dias</td>
-              <td><%= link_to 'Detalhes', excecao %></td>
+              <td><%= link_to t('show'), excecao %></td>
             </tr>
           <% end %>
         </table>
@@ -101,7 +101,7 @@
               <% end %></td>
               <td><%= @excecaos_resolvido_count[index] %></td>
               <td><%= excecao.done_at_hours %> horas </td>
-              <td><%= link_to 'Detalhes', excecao %></td>
+              <td><%= link_to t('show'), excecao %></td>
             </tr>
           <% end %>
         </table>

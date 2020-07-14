@@ -35,9 +35,9 @@ pt-BR:
     referer: "Referenciador"
     viewMethod: "Método da View"
     sessionObject: "Objeto da Sessão"
-    pending: "Total de Pendentes"
-    assigned: "Total de Atribuidos"
-    done: "Porcentagem de concluídos"
+    pending: "Total Pendentes"
+    assigned: "Total Atribuidos"
+    done: "Concluídos %"
   project:
     newTitle: "Novo Projeto"
     name: "Nome"
@@ -46,7 +46,7 @@ pt-BR:
     solved: "Concluidos"
     owner: "Responsável"
     occurrences: "Ocorrências"
-    developers: "Desenvolvedores"
+    developers: "Devs"
   team:
     newTitle: "Nova Equipe"
     name: "Nome"

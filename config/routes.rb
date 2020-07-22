@@ -3,14 +3,14 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   resources :teams
   resources :projects
+  resources :project_report, only: [:show]
   devise_for :developers
   get 'home/index'
   get 'excecaos/index'
 
   resources :developers, only: [:index, :show, :edit, :update]
-  
+  resources :developer_report, only: [:show]
   resources :excecaos, only: [:index, :show]
-
   resources :dono_excecaos, only: [:show, :edit, :update]
   
   root to: 'home#index'

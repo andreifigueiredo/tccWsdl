@@ -2,7 +2,6 @@ class Api::V1::ExcecaosController < ApplicationController
   include ExcecaoHelper
   
   def create
-    binding.pry
     @excecao = create_excecoes(excecao_params)
     if @excecao
       render json: @excecao, status: :created

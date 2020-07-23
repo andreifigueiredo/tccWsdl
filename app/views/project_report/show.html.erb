@@ -1,0 +1,35 @@
+<strong><%= t('report.average_exception_solved') %>:</strong>
+<%= @average_exception_solved_time %> horas
+  <br>
+
+<strong><%= t('report.pending_exceptions') %>:</strong>
+<%= @pending_exceptions %>
+  <br>
+
+<strong><%= t('report.solved_exceptions') %>:</strong>
+<%= @solved_exceptions %>
+  <br>
+
+<strong><%= t('report.average_exception_solved_per_member') %>:</strong>
+<table class="responsive nowrap table table-hover" id="project_report" data-sort="true">
+  <thead>
+    <tr>
+      <th><%= t('report.email') %> </th>
+      <th><%= t('report.average_exception_solved') %>(horas)</th>
+    </tr>
+  </thead>
+  <% @average_exception_solved_per_member_time[:developers].each_with_index do |developer, index| %>
+  <tr>
+    <td><%= developer %>:</td><td> <%= @average_exception_solved_per_member_time[:time][index] %></td>
+  </tr>
+  <% end %>
+</table>
+<br>
+
+<strong><%= t('report.new_exceptions_per_month') %>:</strong>
+<%= @new_exceptions_per_month %>
+  <br>
+
+<strong><%= t('report.exceptions_solved_per_month') %>:</strong>
+<%= @exceptions_solved_per_month %>
+  <br>

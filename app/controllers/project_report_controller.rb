@@ -8,8 +8,8 @@ class ProjectReportController < ApplicationController
     @pending_exceptions = @project.pending_exceptions
     @solved_exceptions = @project.solved_exceptions
     @average_exception_solved_per_member_time = average_exception_solved_per_member(@project)
-    @new_exceptions_per_month = new_exceptions_per_month(@new_exceptions_per_month)
-    @exceptions_solved_per_month = exceptions_solved_per_month(@exceptions_solved_per_month)
+    @average_new_exceptions_per_month = average_new_exceptions_per_month(@project)
+    @average_exceptions_solved_per_month = average_exceptions_solved_per_month(@project)
   end
 
   private

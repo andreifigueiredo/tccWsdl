@@ -10,8 +10,17 @@
 <%= @solved_exceptions %>
   <br>
 
+<strong><%= t('report.average_new_exceptions_per_month') %>:</strong>
+<%= @average_new_exceptions_per_month %>
+  <br>
+
+<strong><%= t('report.average_exceptions_solved_per_month') %>:</strong>
+<%= @average_exceptions_solved_per_month %>
+  <br>
+  <br>
+
 <strong><%= t('report.average_exception_solved_per_member') %>:</strong>
-<table class="responsive nowrap table table-hover" id="project_report" data-sort="true">
+<table class="responsive nowrap table table-hover" id="solved_per_member_report" data-sort="true">
   <thead>
     <tr>
       <th><%= t('report.email') %> </th>
@@ -25,11 +34,3 @@
   <% end %>
 </table>
 <br>
-
-<strong><%= t('report.new_exceptions_per_month') %>:</strong>
-<%= @new_exceptions_per_month %>
-  <br>
-
-<strong><%= t('report.exceptions_solved_per_month') %>:</strong>
-<%= @exceptions_solved_per_month %>
-  <br>

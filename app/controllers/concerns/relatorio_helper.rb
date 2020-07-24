@@ -34,11 +34,37 @@ module RelatorioHelper
       return { developers: developers, time: time_developer }
     end
 
-    def new_exceptions_per_month(project)
+    def average_new_exceptions_per_month(project)
+      time_space = ((project.excecaos.last.created_at - project.excecaos.first.created_at)/ 1.month).to_i
+
+      project.excecaos.count / time_space
 
     end
 
-    def exceptions_solved_per_month(project)
+    def average_exceptions_solved_per_month(project)
+      first_updated_at = project.excecaos.last.dono_excecao.updated_at
+      last_updated_at = project.excecaos.first.dono_excecao.updated_at
+      project.excecaos.each do |excecao|
+        if excecao.dono_excecao.solved && excecao.dono_excecao.updated_at > first_updated_at
+          last_updated_at = excecao.dono_excecao.updated_at
+        end
+      end
+
+      project.excecaos.each do |excecao|
+        if excecao.dono_excecao.solved && excecao.dono_excecao.updated_at < first_updated_at
+          first_updated_at = excecao.dono_excecao.updated_at
+        end
+      end
+
+      time_space = ((last_updated_at - first_updated_at)/ 1.month).to_i
+
+      count = 0
+      project.excecaos.each do |excecao|
+        if excecao.dono_excecao.solved
+          count += 1
+        end
+      end
+      count / time_space
     end
 
     # MEMBER

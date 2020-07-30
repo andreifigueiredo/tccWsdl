@@ -13,6 +13,7 @@ pt-BR:
   show: "DETALHES"
   edit: "EDITAR"
   back: "VOLTAR"
+  report: "RELATÓRIO"
   negative: "Não"
   positive: "Sim"
   developer:

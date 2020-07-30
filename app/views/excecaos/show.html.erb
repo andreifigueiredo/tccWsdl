@@ -42,8 +42,9 @@
 
 <% if @excecao.parametros.present? %>
   <strong><%= t('exception.params') %>:</strong>
-  |<% @exceao.parametros.each do |parametro| %>
-    <%= parametro.name %> |
+  <br>
+  <% @excecao.parametros.each do |parametro| %>
+   <li> <strong><%= t('exception.name') %>:</strong> <%= parametro.param_nome %> <strong><%= t('exception.trype') %>:</strong> <%= parametro.param_tipo %> </li>
   <% end %>
   <br>
 <% end %>  
@@ -51,17 +52,17 @@
 <% if @excecao.http.present? %>
   <p>
   <strong><%= t('exception.referer') %>:</strong>
-  <%= @excecao.http.referer %>
+  <%= @excecao.http.view_referer %>
   <br>
 
   <p>
   <strong>Url:</strong>
-  <%= @excecao.http.url %>
+  <%= @excecao.http.view_url %>
   <br>
 
   <p>
   <strong><%= t('exception.viewMethod') %>:</strong>
-  <%= @excecao.http.method %>
+  <%= @excecao.http.view_method %>
   <br>
 <% end %>
 

@@ -1,6 +1,10 @@
 require 'swagger_helper'
 
 describe 'Excecaos API' do
+  before do |example|
+    Project.create(name: "testName", code: "codeTeste")
+  end
+
   path '/api/v1/excecaos' do
     post 'Create a excecao' do
       tags 'Excecaos'
@@ -32,17 +36,17 @@ describe 'Excecaos API' do
       } 
 
       response '201', 'excecao created' do
-        let(:excecao) { { acao: { acaoNome: 'acaoNomeTeste', acaoClasse: 'acaoClasseTeste' }, 
+        let(:excecao) { { excecao: { code: 'codeTeste', acao: { acaoNome: 'acaoNomeTeste', acaoClasse: 'acaoClasseTeste' }, 
                           excecao: { error: 'errorTeste' },
                           http: { viewReferer: 'viewRefererTeste', viewUrl: 'viewUrlTeste', viewMethod: 'viewMethod' },
                           objSessao: { objText: 'objTextTeste' },
-                          parametros: { paramTipo: 'paramTipoTeste', paramNome: 'paramNomeTeste' } 
-                      } }
+                          parametros: [{ paramTipo: 'paramTipoTeste', paramNome: 'paramNomeTeste' }] 
+                      } } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:excecao) { { invalidParam: 'paramAleatorioNListado' } }
+        let(:excecao) { { excecao: { invalidParam: 'paramAleatorioNListado' } } }
         run_test!
       end
     end

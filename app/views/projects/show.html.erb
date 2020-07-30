@@ -4,6 +4,12 @@
   <strong><%= t('project.name') %>:</strong>
   <%= @project.name %>
   <br>
+
+  <% if current_developer.admin %>
+    <strong><%= t('project.code') %>:</strong>
+    <%= @project.code %>
+    <br>
+  <% end %>
   <%
 =begin%>
  <strong>Exceções:</strong> 

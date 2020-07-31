@@ -45,5 +45,3 @@ paths:
       responses:
         '201':
           description: excecao created
-        '422':
-          description: invalid request

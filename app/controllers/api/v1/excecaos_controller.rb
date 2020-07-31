@@ -3,13 +3,11 @@ class Api::V1::ExcecaosController < ApplicationController
   include ExcecaoHelper
   
   def create
+    @excecao = create_excecoes(params[:excecao])
     # binding.pry
-    begin
-      @excecao = create_excecoes(params[:excecao])
-      if @excecao
-        render json: @excecao, status: :created
-      end
-    rescue
+    if @excecao.present?
+      render json: @excecao, status: :created
+    else
       render json: { message: "invalid params" }, status: :unprocesable_entity
     end
   end

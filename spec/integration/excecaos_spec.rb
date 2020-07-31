@@ -45,10 +45,10 @@ describe 'Excecaos API' do
         run_test!
       end
 
-      response '422', 'invalid request' do
-        let(:excecao) { { excecao: { invalidParam: 'paramAleatorioNListado' } } }
-        run_test!
-      end
+      # response '422', 'invalid request' do
+      #   let(:excecao) { { excecao: { invalidParam: 'paramAleatorioNListado' } } }
+      #   run_test!
+      # end
     end
   end 
 end

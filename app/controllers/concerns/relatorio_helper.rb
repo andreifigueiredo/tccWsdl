@@ -29,7 +29,11 @@ module RelatorioHelper
             count += 1
           end
         end
-        time_developer.push(time / count)
+        if count > 0
+          time_developer.push(time / count)
+        else
+          time_developer.push(0)
+        end
       end
       return { developers: developers, time: time_developer }
     end
@@ -37,8 +41,11 @@ module RelatorioHelper
     def average_new_exceptions_per_month(project)
       time_space = ((project.excecaos.last.created_at - project.excecaos.first.created_at)/ 1.month).to_i
 
-      project.excecaos.count / time_space
-
+      if time_space > 0
+        return project.excecaos.count / time_space
+      else
+        return 0
+      end
     end
 
     def average_exceptions_solved_per_month(project)
@@ -64,7 +71,11 @@ module RelatorioHelper
           count += 1
         end
       end
-      count / time_space
+      if time_space > 0
+        return count / time_space
+      else
+        return 0
+      end
     end
 
     # MEMBER
@@ -89,7 +100,11 @@ module RelatorioHelper
         end
       end
 
-      return time / count
+      if count > 0
+        return time / count
+      else
+        return 0
+      end
     end
 
     def member_average_exception_solved_per_month(developer)
@@ -115,7 +130,11 @@ module RelatorioHelper
           count += 1
         end
       end
-      count / time_space
+      if time_space > 0
+        return count / time_space
+      else
+        return 0
+      end
     end
   end
 end

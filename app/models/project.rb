@@ -62,9 +62,10 @@ class Project < ApplicationRecord
     end
   end
 
-  private
-
   def generate_code
     self.code = (0...8).map { (65 + rand(26)).chr }.join
+
+    self.save
   end
+
 end

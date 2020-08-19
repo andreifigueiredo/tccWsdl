@@ -10,6 +10,10 @@
     <%= @project.code %>
     <br>
   <% end %>
+
+  <%= button_to t('project.code_regenerate'), project_generate_code_path(@project.id), method: :get %>
+  <br>
+
   <%
 =begin%>
  <strong>Exceções:</strong> 

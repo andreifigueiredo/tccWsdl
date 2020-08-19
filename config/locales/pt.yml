@@ -48,6 +48,7 @@ pt:
     owner: "Responsável"
     occurrences: "Ocorrências"
     developers: "Devs"
+    code_regenerate: "Gerar Code Novamente"
   team:
     newTitle: "NOVA EQUIPE"
     name: "Nome"

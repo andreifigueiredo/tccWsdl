@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'excecaos/index'
 
+  resources :projects do
+    get :generate_code
+  end
+
   resources :developers, only: [:index, :show, :edit, :update]
   resources :developer_report, only: [:show]
   resources :excecaos, only: [:index, :show]

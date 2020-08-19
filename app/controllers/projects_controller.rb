@@ -85,6 +85,17 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def generate_code
+    @project = Project.find(params[:project_id])
+
+    if @project.generate_code
+      respond_to do |format|
+        format.html { redirect_to @project, notice: 'Code was successfully generated.' }
+        format.json { render :show, status: :ok, location: @project }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -95,4 +106,5 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name)
     end
+
 end

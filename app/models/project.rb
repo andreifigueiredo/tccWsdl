@@ -2,11 +2,10 @@ class Project < ApplicationRecord
   has_one :team
   has_many :excecaos
 
-  before_create :generate_code, if: -> { self.code.blank? } 
-
   validates :code, uniqueness: true
 
-  
+  after_create :generate_code, if: -> { self.code.blank? } 
+
   def solved_exceptions
     count = 0
     
@@ -63,9 +62,9 @@ class Project < ApplicationRecord
   end
 
   def generate_code
-    self.code = (0...8).map { (65 + rand(26)).chr }.join
+    code = (0...8).map { (65 + rand(26)).chr }.join
 
-    self.save
+    self.update_attributes(code: code)
   end
 
 end

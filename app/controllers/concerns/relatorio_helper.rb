@@ -90,6 +90,16 @@ module RelatorioHelper
       count
     end
 
+    def member_exception_pending(developer)
+      count = 0
+      developer.dono_excecaos.each do |dono_excecao|
+        unless dono_excecao.solved
+          count += 1
+        end
+      end
+      count
+    end
+
     def member_average_time_exception_solved(developer)
       time = 0
       count = 0
@@ -136,5 +146,29 @@ module RelatorioHelper
         return 0
       end
     end
+  end
+
+  def solved_per_month_chart(project)
+    data = []
+    project.excecaos.each do |excecao|
+      if excecao.dono_excecao.solved
+        data.push({value: excecao.dono_excecao.excecao.error, 
+                  date: excecao.dono_excecao.updated_at})
+      end
+    end
+
+    return HighChartsHelper.newChart(data, "Quantidade de erros por mês")
+  end
+
+  def average_time_solve_chart(developer)
+    data = []
+    developer.dono_excecaos.each do |dono_excecao|
+      if dono_excecao.solved
+        data.push({value: dono_excecao.updated_at - dono_excecao.created_at, 
+                  date: dono_excecao.updated_at})
+      end
+    end
+
+    return HighChartsHelper.newChart(data, "Tempo médio de resolução de erros por mês")
   end
 end

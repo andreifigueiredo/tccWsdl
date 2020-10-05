@@ -5,6 +5,8 @@ class DeveloperReportController < ApplicationController
 
   def show
     @member_exception_solved = member_exception_solved(@developer)
+    @average_time_solve_chart = average_time_solve_chart(@developer)
+    @member_exception_pending = member_exception_pending(@developer)
     @member_average_time_exception_solved = member_average_time_exception_solved(@developer)
     @member_average_exception_solved_per_month = member_average_exception_solved_per_month(@developer)
   end

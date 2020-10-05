@@ -5,6 +5,7 @@ class ProjectReportController < ApplicationController
 
   def show
     @average_exception_solved_time = average_exception_solved(@project)
+    @solved_per_month_chart = solved_per_month_chart(@project)
     @pending_exceptions = @project.pending_exceptions
     @solved_exceptions = @project.solved_exceptions
     @average_exception_solved_per_member_time = average_exception_solved_per_member(@project)

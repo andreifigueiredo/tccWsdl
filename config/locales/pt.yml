@@ -48,7 +48,8 @@ pt:
     owner: "Responsável"
     occurrences: "Ocorrências"
     developers: "Devs"
-    code_regenerate: "Gerar Code Novamente"
+    access_key: "Chave de acesso"
+    access_key_regenerate: "Nova chave de acesso"
   team:
     newTitle: "NOVA EQUIPE"
     name: "Nome"

@@ -6,8 +6,16 @@
 <%= @member_exception_solved %>
   <br>
 
+<strong><%= t('report.member_exception_pending') %>:</strong>
+<%= @member_exception_pending %>
+  <br>
+
 <strong><%= t('report.member_average_exception_solved_per_month') %>:</strong>
 <%= @member_average_exception_solved_per_month %>
   <br>
+
+<div class="graph">
+  <%= raw @average_time_solve_chart.div %>
+</div>
 
 <%= link_to t('back'), @developer %>

@@ -6,12 +6,12 @@
   <br>
 
   <% if current_developer.admin %>
-    <strong><%= t('project.code') %>:</strong>
+    <strong><%= t('project.access_key') %>:</strong>
     <%= @project.code %>
     <br>
   <% end %>
 
-  <%= button_to t('project.code_regenerate'), project_generate_code_path(@project.id), method: :get %>
+  <%= button_to t('project.access_key_regenerate'), project_generate_code_path(@project.id), method: :get %>
   <br>
 
   <%

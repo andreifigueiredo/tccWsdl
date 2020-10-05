@@ -56,6 +56,7 @@ en:
   donoExcecao:
     editTitle: "Assign a Owner"
   project:
+    access_key_regenerate: "New access key"
     newTitle: "New Project"
   
   activerecord:

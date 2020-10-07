@@ -4,8 +4,7 @@ module HighChartsHelper
     @data = []
     
     exceptions.each do |exception|
-      # binding.pry
-      @data << [exception[:value], exception[:date]]
+      @data.push([exception[:date], exception[:value] ])
     end
     
     opts = {
@@ -13,10 +12,9 @@ module HighChartsHelper
         text: "#{title}"
       }
     }
-
     dataframe = Daru::DataFrame.new({
       date: @data.map {|row| row[0]},
-      "#{title}": @data.map {|row| row[1]}
+      value: @data.map {|row| row[1]}
     })
 
     Daru::View::Plot.new(dataframe, opts, chart_class: 'stock')

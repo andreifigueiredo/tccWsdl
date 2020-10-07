@@ -150,10 +150,10 @@ module RelatorioHelper
 
   def solved_per_month_chart(project)
     data = []
-    project.excecaos.each do |excecao|
+    project.excecaos.where(created_at: Time.now-1.year..Time.now).each do |excecao|
       if excecao.dono_excecao.solved
-        data.push({value: excecao.dono_excecao.excecao.error, 
-                  date: excecao.dono_excecao.updated_at})
+        data.push({value: Excecao.where(error: excecao.error).count, 
+                  date: excecao.dono_excecao.updated_at.utc.to_i*1000})
       end
     end
 
@@ -162,10 +162,10 @@ module RelatorioHelper
 
   def average_time_solve_chart(developer)
     data = []
-    developer.dono_excecaos.each do |dono_excecao|
+    developer.dono_excecaos.where(updated_at: Time.now-1.year..Time.now).each do |dono_excecao|
       if dono_excecao.solved
-        data.push({value: dono_excecao.updated_at - dono_excecao.created_at, 
-                  date: dono_excecao.updated_at})
+        data.push({value: (Time.zone.at(dono_excecao.updated_at - dono_excecao.created_at)).day, 
+                  date: dono_excecao.updated_at.utc.to_i*1000})
       end
     end
 

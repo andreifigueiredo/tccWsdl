@@ -41,42 +41,46 @@ module RelatorioHelper
     end
 
     def average_new_exceptions_per_month(project)
-      time_space = ((project.excecaos.last.created_at - project.excecaos.first.created_at)/ 1.month).to_i
+      if project.excecaos.present?
+        time_space = ((project.excecaos.last.created_at - project.excecaos.first.created_at)/ 1.month).to_i
 
-      if time_space > 0
-        return project.excecaos.count / time_space
-      else
-        return 0
+        if time_space > 0
+          return project.excecaos.count / time_space
+        else
+          return 0
+        end
       end
     end
 
     def average_exceptions_solved_per_month(project)
-      first_updated_at = project.excecaos.last.dono_excecao.updated_at
-      last_updated_at = project.excecaos.first.dono_excecao.updated_at
-      project.excecaos.each do |excecao|
-        if excecao.dono_excecao.solved && excecao.dono_excecao.updated_at < first_updated_at
-          first_updated_at = excecao.dono_excecao.updated_at
+      if project.excecaos.present?
+        first_updated_at = project.excecaos.last.dono_excecao.updated_at
+        last_updated_at = project.excecaos.first.dono_excecao.updated_at
+        project.excecaos.each do |excecao|
+          if excecao.dono_excecao.solved && excecao.dono_excecao.updated_at < first_updated_at
+            first_updated_at = excecao.dono_excecao.updated_at
+          end
         end
-      end
 
-      project.excecaos.each do |excecao|
-        if excecao.dono_excecao.solved && excecao.dono_excecao.updated_at > last_updated_at
-          last_updated_at = excecao.dono_excecao.updated_at
+        project.excecaos.each do |excecao|
+          if excecao.dono_excecao.solved && excecao.dono_excecao.updated_at > last_updated_at
+            last_updated_at = excecao.dono_excecao.updated_at
+          end
         end
-      end
 
-      time_space = ((last_updated_at - first_updated_at)/ 1.month).to_i
+        time_space = ((last_updated_at - first_updated_at)/ 1.month).to_i
 
-      count = 0
-      project.excecaos.each do |excecao|
-        if excecao.dono_excecao.solved
-          count += 1
+        count = 0
+        project.excecaos.each do |excecao|
+          if excecao.dono_excecao.solved
+            count += 1
+          end
         end
-      end
-      if time_space > 0
-        return count / time_space
-      else
-        return 0
+        if time_space > 0
+          return count / time_space
+        else
+          return 0
+        end
       end
     end
 
@@ -120,32 +124,34 @@ module RelatorioHelper
     end
 
     def member_average_exception_solved_per_month(developer)
-      first_updated_at = developer.dono_excecaos.last.updated_at
-      last_updated_at = developer.dono_excecaos.first.updated_at
-      developer.dono_excecaos.each do |dono_excecao|
-        if dono_excecao.solved && dono_excecao.updated_at < first_updated_at
-          first_updated_at = dono_excecao.updated_at
+      if developer.dono_excecaos.present?
+        first_updated_at = developer.dono_excecaos.last.updated_at
+        last_updated_at = developer.dono_excecaos.first.updated_at
+        developer.dono_excecaos.each do |dono_excecao|
+          if dono_excecao.solved && dono_excecao.updated_at < first_updated_at
+            first_updated_at = dono_excecao.updated_at
+          end
         end
-      end
 
-      developer.dono_excecaos.each do |dono_excecao|
-        if dono_excecao.solved && dono_excecao.updated_at > last_updated_at
-          last_updated_at = dono_excecao.updated_at
+        developer.dono_excecaos.each do |dono_excecao|
+          if dono_excecao.solved && dono_excecao.updated_at > last_updated_at
+            last_updated_at = dono_excecao.updated_at
+          end
         end
-      end
 
-      time_space = ((last_updated_at - first_updated_at)/ 1.month).to_i
+        time_space = ((last_updated_at - first_updated_at)/ 1.month).to_i
 
-      count = 0
-      developer.dono_excecaos.each do |dono_excecao|
-        if dono_excecao.solved
-          count += 1
+        count = 0
+        developer.dono_excecaos.each do |dono_excecao|
+          if dono_excecao.solved
+            count += 1
+          end
         end
-      end
-      if time_space > 0
-        return count / time_space
-      else
-        return 0
+        if time_space > 0
+          return count / time_space
+        else
+          return 0
+        end
       end
     end
   end

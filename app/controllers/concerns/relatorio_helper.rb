@@ -13,7 +13,9 @@ module RelatorioHelper
         end
       end
 
-      return time / count
+      if count > 0
+        return time / count
+      end
     end
 
     def average_exception_solved_per_member(project)

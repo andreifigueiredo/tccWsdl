@@ -15,6 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   #Mailer
+  config.action_mailer.default_url_options = { :host => 'localhost' }
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {

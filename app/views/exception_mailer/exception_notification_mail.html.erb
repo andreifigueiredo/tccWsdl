@@ -1,0 +1,69 @@
+<p>Olá Developer!</p>
+
+<p>Uma nova exceção aconteceu no <%= @project %>.</p>
+
+<p>
+<strong>Error:</strong>
+<%= @excecao.error %>
+<br>
+
+<p>
+<strong><%= t('exception.createdAt') %>:</strong>
+<%= @excecao.created_at.to_time.strftime("%d/%m/%Y") %>
+
+<% if @excecao.dono_excecao.present? && @excecao.dono_excecao.developer.present? %>
+  <p>
+  <strong><%= t('exception.owner') %>:</strong>
+  <%= @excecao.dono_excecao.developer.email %>
+
+  <p>
+  <strong><%= t('exception.assignAt') %>:</strong>
+  <%= @excecao.dono_excecao.created_at.strftime("%d/%m/%Y") %>
+
+  <% if @excecao.dono_excecao.solved %>
+    <p>
+    <strong><%= t('exception.solvedAt') %>:</strong>
+    <%= @excecao.dono_excecao.updated_at.to_time.strftime("%d/%m/%Y")%>
+  <% end %>
+
+<% end %>
+
+<% if @excecao.acao.present? %>
+  <p>
+  <strong><%= t('exception.actionName') %>:</strong>
+  <%= @excecao.acao.nome %>
+  <br>
+
+  <p>
+  <strong><%= t('exception.actionClass') %>:</strong>
+  <%= @excecao.acao.classe %>
+  <br>
+
+<% end %>
+
+
+<% if @excecao.parametros.present? %>
+  <strong><%= t('exception.params') %>:</strong>
+  <br>
+  <% @excecao.parametros.each do |parametro| %>
+   <li> <strong><%= t('exception.name') %>:</strong> <%= parametro.param_nome %> <strong><%= t('exception.trype') %>:</strong> <%= parametro.param_tipo %> </li>
+  <% end %>
+  <br>
+<% end %>  
+
+<% if @excecao.http.present? %>
+  <p>
+  <strong><%= t('exception.referer') %>:</strong>
+  <%= @excecao.http.view_referer %>
+  <br>
+
+  <p>
+  <strong>Url:</strong>
+  <%= @excecao.http.view_url %>
+  <br>
+
+  <p>
+  <strong><%= t('exception.viewMethod') %>:</strong>
+  <%= @excecao.http.view_method %>
+  <br>
+<% end %>

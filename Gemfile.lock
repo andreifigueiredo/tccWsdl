@@ -20,6 +20,19 @@ GIT
       packable (~> 1.3.9)
 
 GIT
+  remote: https://github.com/SciRuby/nyaplot.git
+  revision: 662ebc60b0d1e9fbebe7e06530d8450d266ebbdd
+  specs:
+    nyaplot (0.1.6)
+
+GIT
+  remote: https://github.com/Shekharrajak/daru-data_tables.git
+  revision: af3460a049daa8a090f82df693ffb6a48eb4ab59
+  specs:
+    daru-data_tables (0.3.5)
+      daru
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: a26e802f9e9d578e2b8df3d094f0a77a5c6b1f80
   branch: master
@@ -31,6 +44,12 @@ GIT
       tty-pager (~> 0.12.0)
       tty-screen (~> 0.6.5)
       tty-tree (~> 0.2.0)
+
+GIT
+  remote: https://github.com/winston/google_visualr.git
+  revision: 17b97114a345baadd011e7b442b9a6c91a2b7ab5
+  specs:
+    google_visualr (2.5.1)
 
 GEM
   remote: https://rubygems.org/
@@ -107,8 +126,6 @@ GEM
     crass (1.0.4)
     css_parser (1.7.0)
       addressable
-    daru-data_tables (0.3.5)
-      daru
     database_cleaner (1.7.0)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -134,7 +151,6 @@ GEM
       thor (~> 0.14)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    google_visualr (2.5.1)
     gyoku (1.3.1)
       builder (>= 2.1.2)
     hash-deep-merge (0.1.1)
@@ -179,7 +195,6 @@ GEM
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     nori (2.6.0)
-    nyaplot (0.1.6)
     orm_adapter (0.5.0)
     packable (1.3.10)
       backports
@@ -362,6 +377,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   daru!
+  daru-data_tables!
   daru-view!
   database_cleaner (~> 1.7.0)
   devise
@@ -369,10 +385,12 @@ DEPENDENCIES
   factory_bot_rails (~> 4.11.1)
   faker!
   figaro
+  google_visualr!
   jbuilder (~> 2.5)
   jquery-datatables
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  nyaplot!
   pg (>= 0.18, < 2.0)
   premailer-rails (~> 1.10.2)
   pry-rails (~> 0.3.9)

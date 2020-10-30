@@ -2,7 +2,7 @@ class ExceptionMailer < ApplicationMailer
   def exception_notification_mail(developers, excecao)
     to = []
     subject = "New Exception"
-    @project = excecao.project
+    @project = excecao.project.name
     @excecao = excecao
 
     developers.each do |developer|

@@ -1,3 +1,37 @@
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+    console.log("here");
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var graphValues = [];
+    graphValues.push(['Month', 'Solved']);
+    var data = "<%= @data %>"
+    console.log(data);
+    <% @data.each do |dataValues| %>
+    graphValues.push([new Date("<%= dataValues[1] %>"), <%= dataValues[0] %>]);
+    <%end%>
+
+    var data = google.visualization.arrayToDataTable(
+      graphValues
+      // ['Month', 'Solved', 'New'],
+      // ['2004',  1000,      400],
+      // ['2005',  1170,      460],
+      // ['2006',  660,       1120],
+      // ['2007',  1030,      540]
+    );
+
+    var options = {
+      title: 'Quantidade por mês de Exceções Resolvidas X Não Resolvidas',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
 <strong><%= t('report.average_exception_solved') %>:</strong>
 <%= @average_exception_solved_time %> horas
   <br>
@@ -35,8 +69,7 @@
 </table>
 <br>
 
-<div class="graph">
-  <%= raw @solved_per_month_chart.div %>
-</div>
+<div id="curve_chart" style="width: 900px; height: 500px"></div>
+
 
 <%= link_to t('back'), @project %>

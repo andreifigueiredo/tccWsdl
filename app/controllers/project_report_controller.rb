@@ -11,6 +11,14 @@ class ProjectReportController < ApplicationController
     @average_exception_solved_per_member_time = average_exception_solved_per_member(@project)
     @average_new_exceptions_per_month = average_new_exceptions_per_month(@project)
     @average_exceptions_solved_per_month = average_exceptions_solved_per_month(@project)
+
+    @data = []
+    @project.excecaos.where(created_at: Time.now-1.year..Time.now).each do |excecao|
+      if excecao.dono_excecao.solved
+        @data.push([Excecao.where(error: excecao.error).count, 
+                  excecao.dono_excecao.updated_at.strftime('%Y-%m-%d %H:%M:%S')])
+      end
+    end
   end
 
   private

@@ -1,15 +1,12 @@
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
-    console.log("here");
   google.charts.setOnLoadCallback(drawChart);
 
   function drawChart() {
     var graphValues = [];
-    graphValues.push(['Month', 'Solved']);
-    var data = "<%= @data %>"
-    console.log(data);
-    <% @data.each do |dataValues| %>
-    graphValues.push([new Date("<%= dataValues[1] %>"), <%= dataValues[0] %>]);
+    graphValues.push(['Month', 'Solved', 'New Exceptions']);
+    <% @data.each_with_index do |dataValues, index| %>
+      graphValues.push([new Date(<%= dataValues[0] %>), <%= dataValues[1] %>, <%= dataValues[2] %>]);
     <%end%>
 
     var data = google.visualization.arrayToDataTable(

@@ -1,3 +1,49 @@
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var graphAverageValues = [];
+    var graphQtdValues = [];
+    graphAverageValues.push(['Month', 'Solved']);
+    graphQtdValues.push(['Month', 'Solved', 'Pending']);
+
+    <% @dataAverage.each_with_index do |dataValues, index| %>
+      graphAverageValues.push([new Date(<%= dataValues[0] %>), <%= dataValues[1] %>]);
+    <%end%>
+
+    <% @dataQtd.each_with_index do |dataValues, index| %>
+      graphQtdValues.push([new Date(<%= dataValues[0] %>), <%= dataValues[1] %>, <%= dataValues[2] %>]);
+    <%end%>
+
+    var averageData = google.visualization.arrayToDataTable(
+      graphAverageValues
+    );
+
+    var qtdData = google.visualization.arrayToDataTable(
+      graphQtdValues
+    );
+
+    var averageOptions = {
+      title: 'Tempo médio gasto para resolução',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var qtdOptions = {
+      title: 'Quantidade de exceções',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+    var averageChart = new google.visualization.LineChart(document.getElementById('average_curve_chart'));
+
+    var qtdChart = new google.visualization.LineChart(document.getElementById('qtd_curve_chart'));
+
+    averageChart.draw(averageData, averageOptions);
+
+    qtdChart.draw(qtdData, qtdOptions);
+  }
+</script>
 <strong><%= t('report.member_average_time_exception_solved') %>:</strong>
 <%= @member_average_time_exception_solved %> horas
   <br>
@@ -14,8 +60,9 @@
 <%= @member_average_exception_solved_per_month %>
   <br>
 
-<div class="graph">
-  <%= raw @average_time_solve_chart.div %>
-</div>
+<div id="average_curve_chart" style="width: 900px; height: 500px"></div>
+
+<div id="qtd_curve_chart" style="width: 900px; height: 500px"></div>
+
 
 <%= link_to t('back'), @developer %>

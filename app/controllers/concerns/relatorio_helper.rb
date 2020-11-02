@@ -156,18 +156,6 @@ module RelatorioHelper
     end
   end
 
-  def solved_per_month_chart(project)
-    data = []
-    project.excecaos.where(created_at: Time.now-1.year..Time.now).each do |excecao|
-      if excecao.dono_excecao.solved
-        data.push({value: Excecao.where(error: excecao.error).count, 
-                  date: excecao.dono_excecao.updated_at.utc.to_i*1000})
-      end
-    end
-
-    return HighChartsHelper.newChart(data, "Quantidade de erros por mês")
-  end
-
   def average_time_solve_chart(developer)
     data = []
     developer.dono_excecaos.where(updated_at: Time.now-1.year..Time.now).each do |dono_excecao|

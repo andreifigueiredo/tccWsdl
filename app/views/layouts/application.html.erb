@@ -16,7 +16,15 @@
 
 
   </head>
-
+<div class="header">
+  <div class="header-left">
+    <h1><%= t('appTittle') %></h1>
+  </div>
+  <div class="header-right">
+    <%= link_to "en", locale: "en" %>
+    <%= link_to "pt", locale: "pt" %>
+  </div>
+</div>
   <body>
     <div class="container core-page col-lg-4 col-md-4">
       <nav class="navbar navbar-light bg-light hamburguer-menu_container">
@@ -30,7 +38,6 @@
       <div class="vertical-menu_container">
         <%= render 'layouts/menu' %>
         <div class="container core-screen">
-          <h1><%= t('appTittle') %></h1>
           <%= yield %>
         </div>
 

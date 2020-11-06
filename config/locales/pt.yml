@@ -1,6 +1,6 @@
 pt:
   hello: "Olá Mundo"
-  appTittle: "Bem vindo ao Monitorador de Exceções"
+  appTittle: "Mon Exc"
   logIn: "Entrar"
   logOut: "Sair"
   projects: "Projetos"

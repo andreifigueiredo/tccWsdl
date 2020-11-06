@@ -31,7 +31,7 @@
 
 en:
   hello: "Hello world"
-  appTittle: "Welcome to the Exception Monitor"
+  appTittle: "Exp Mon"
   logIn: "Log in"
   logOut: "Log out"
   projects: "Projects"

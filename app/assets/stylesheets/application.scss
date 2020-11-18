@@ -30,6 +30,7 @@ html, body {
   margin: 0px;
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .col-md-4, .col-lg-4 {
@@ -208,6 +209,23 @@ table {
 
   html {
     font-size: 20px;
+  }
+}
+
+.show_excecao{
+  display: flex;
+  flex-direction: column;
+
+  p{
+    display: block;
+    width: 100%;
+  }
+  
+  .excecao_info, .dono_excecao_info, .acao_info, .params_info, .http_info, .sessao_info{
+    display: flex;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-bottom: solid 1px black;
   }
 }
 

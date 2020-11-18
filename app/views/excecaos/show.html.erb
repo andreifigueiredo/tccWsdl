@@ -1,81 +1,95 @@
-<p id="notice"><%= notice %></p>
+<div class="show_excecao">
+  <p id="notice"><%= notice %></p>
 
-<p>
-<strong>Error:</strong>
-<%= @excecao.error %>
-<br>
-
-<p>
-<strong><%= t('exception.createdAt') %>:</strong>
-<%= @excecao.created_at.to_time.strftime("%d/%m/%Y") %>
-
-<% if @excecao.dono_excecao.present? && @excecao.dono_excecao.developer.present? %>
-  <p>
-  <strong><%= t('exception.owner') %>:</strong>
-  <%= @excecao.dono_excecao.developer.email %>
-
-  <p>
-  <strong><%= t('exception.assignAt') %>:</strong>
-  <%= @excecao.dono_excecao.created_at.strftime("%d/%m/%Y") %>
-
-  <% if @excecao.dono_excecao.solved %>
+  <div class="excecao_info">
     <p>
-    <strong><%= t('exception.solvedAt') %>:</strong>
-    <%= @excecao.dono_excecao.updated_at.to_time.strftime("%d/%m/%Y")%>
-  <% end %>
+    <strong>Error:</strong>
+    <%= @excecao.error %>
+    <br>
 
-<% end %>
+    <p>
+    <strong><%= t('exception.createdAt') %>:</strong>
+    <%= @excecao.created_at.to_time.strftime("%d/%m/%Y") %>
+  </div>
 
-<% if @excecao.acao.present? %>
-  <p>
-  <strong><%= t('exception.actionName') %>:</strong>
-  <%= @excecao.acao.nome %>
-  <br>
+    <% if @excecao.dono_excecao.present? && @excecao.dono_excecao.developer.present? %>
+  <div class="dono_excecao_info">
+      <p>
+      <strong><%= t('exception.owner') %>:</strong>
+      <%= @excecao.dono_excecao.developer.email %>
 
-  <p>
-  <strong><%= t('exception.actionClass') %>:</strong>
-  <%= @excecao.acao.classe %>
-  <br>
+      <p>
+      <strong><%= t('exception.assignAt') %>:</strong>
+      <%= @excecao.dono_excecao.created_at.strftime("%d/%m/%Y") %>
 
-<% end %>
+      <% if @excecao.dono_excecao.solved %>
+        <p>
+        <strong><%= t('exception.solvedAt') %>:</strong>
+        <%= @excecao.dono_excecao.updated_at.to_time.strftime("%d/%m/%Y")%>
+      <% end %>
 
+  </div>
+    <% end %>
 
-<% if @excecao.parametros.present? %>
-  <strong><%= t('exception.params') %>:</strong>
-  <br>
-  <% @excecao.parametros.each do |parametro| %>
-   <li> <strong><%= t('exception.name') %>:</strong> <%= parametro.param_nome %> <strong><%= t('exception.trype') %>:</strong> <%= parametro.param_tipo %> </li>
-  <% end %>
-  <br>
-<% end %>  
+    <% if @excecao.acao.present? %>
+  <div class="acao_info">
+      <p>
+      <strong><%= t('exception.actionName') %>:</strong>
+      <%= @excecao.acao.nome %>
+      <br>
 
-<% if @excecao.http.present? %>
-  <p>
-  <strong><%= t('exception.referer') %>:</strong>
-  <%= @excecao.http.view_referer %>
-  <br>
+      <p>
+      <strong><%= t('exception.actionClass') %>:</strong>
+      <%= @excecao.acao.classe %>
+      <br>
 
-  <p>
-  <strong>Url:</strong>
-  <%= @excecao.http.view_url %>
-  <br>
+  </div>
+    <% end %>
 
-  <p>
-  <strong><%= t('exception.viewMethod') %>:</strong>
-  <%= @excecao.http.view_method %>
-  <br>
-<% end %>
+    <% if @excecao.parametros.present? %>
+  <div class="params_info">
+      <strong><%= t('exception.params') %>:</strong>
+      <br>
+      <% @excecao.parametros.each do |parametro| %>
+      <li> <strong><%= t('exception.name') %>:</strong> <%= parametro.param_nome %> <strong><%= t('exception.trype') %>:</strong> <%= parametro.param_tipo %> </li>
+      <% end %>
+      <br>
+  </div>
+    <% end %>  
 
+    <% if @excecao.http.present? %>
+  <div class="http_info">
+      <p>
+      <strong><%= t('exception.referer') %>:</strong>
+      <%= @excecao.http.view_referer %>
+      <br>
 
-<% if @excecao.sessao.present? %>
-  <p>
-  <strong><%= t('exception.sessionObject') %>:</strong>
-  <%= @excecao.sessao.obj_sessao.obj_text %>
-  <br>
-<% end %>
+      <p>
+      <strong>Url:</strong>
+      <%= @excecao.http.view_url %>
+      <br>
 
-<% if current_developer.admin && @dono_excecao.present?%>
-  <%= render "dono_excecaos/edit", dono_excecao: @dono_excecao %>
-<% end %>
+      <p>
+      <strong><%= t('exception.viewMethod') %>:</strong>
+      <%= @excecao.http.view_method %>
+      <br>
+  </div>
+    <% end %>
 
-<%= link_to t('back'), "/projects/#{@excecao.project_id}" %>
+    <% if @excecao.sessao.present? %>
+  <div class="sessao_info">
+      <p>
+      <strong><%= t('exception.sessionObject') %>:</strong>
+      <%= @excecao.sessao.obj_sessao.obj_text %>
+      <br>
+  </div>
+    <% end %>
+
+    <% if current_developer.admin && @dono_excecao.present?%>
+  <div class="edit_dono_excecao">
+      <%= render "dono_excecaos/edit", dono_excecao: @dono_excecao %>
+  </div>
+    <% end %>
+
+  <%= link_to t('back'), "/projects/#{@excecao.project_id}" %>
+</div>

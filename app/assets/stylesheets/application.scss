@@ -162,14 +162,14 @@ table {
 
 .hamburguer-menu_container{
   display: none;
+
+  .header {
+    display: none;
+  }
 }
 
 .navbar.navbar-1 .navbar-toggler-icon {
   background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
-}
-
-.navbar-light{
-  justify-content: flex-end;
 }
 
 .header {
@@ -205,8 +205,31 @@ table {
   .hamburguer-menu_container{
     display: flex;
     background-color: #eee; /* Grey background color */
+
+    .header {
+      display: flex;
+      background-color: transparent !important;
+    }
   }
 
+  .header{
+    display: none;
+  }
+
+  .collapse.show {
+    display: flex;
+    flex-direction: column;
+    // width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    background: grey;
+    div{
+      width: 95vw;
+    }
+  }
   html {
     font-size: 20px;
   }
@@ -226,6 +249,10 @@ table {
     padding: 0.5rem;
     margin-top: 1rem;
     border-bottom: solid 1px black;
+  }
+
+  .params_info{
+    flex-direction: column;
   }
 }
 

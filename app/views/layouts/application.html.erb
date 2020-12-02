@@ -28,6 +28,16 @@
   <body>
     <div class="container core-page col-lg-4 col-md-4">
       <nav class="navbar navbar-light bg-light hamburguer-menu_container">
+        <div class="header">
+          <div class="header-left">
+            <h1><%= t('appTittle') %></h1>
+          </div>
+          <div class="header-right">
+            <%= link_to "en", locale: "en" %>
+            <%= link_to "pt", locale: "pt" %>
+          </div>
+        </div>
+        <div>
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
           aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 

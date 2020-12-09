@@ -45,7 +45,7 @@ Rails.application.configure do
   :user_name            => ENV['sandgrid_username'],
   :password             => ENV['sandgrid_password'],
   :address              => "smtp.sendgrid.net",
-  :port                 => 465,
+  :port                 => 587,
   :authentication       => "plain",
   :enable_starttls_auto => true
   }

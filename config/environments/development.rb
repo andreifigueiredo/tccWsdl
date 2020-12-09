@@ -42,7 +42,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :login            => ENV['sendinblue_username'],
+    :use_name            => ENV['sendinblue_username'],
     :password             => ENV['sendinblue_password'],
     :address              => "smtp-relay.sendinblue.com",
     :port                 => 587,

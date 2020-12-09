@@ -19,10 +19,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :use_name            => ENV['sendinblue_username'],
-    :password             => ENV['sendinblue_password'],
-    :address              => "smtp-relay.sendinblue.com",
-    :port                 => 587,
+    :user_name            => ENV['sandgrid_username'],
+    :password             => ENV['sandgrid_password'],
+    :address              => "smtp.sendgrid.net",
+    :port                 => 465,
     :authentication       => "plain",
     :enable_starttls_auto => true
     }

@@ -24,5 +24,9 @@ Things you may want to cover:
 
 * ...
 
+* seed testing experiment scenarios:
+
+
+
 Installation: ruby setup_server
 Run server: rails s

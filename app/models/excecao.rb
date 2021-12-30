@@ -8,7 +8,7 @@ class Excecao < ApplicationRecord
   has_one :sessao
 
   after_create :create_dono_excecao
-  after_create :send_notification_mail
+  # after_create :send_notification_mail
 
   def create_dono_excecao 
     DonoExcecao.create(excecao: self)

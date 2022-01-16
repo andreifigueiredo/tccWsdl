@@ -6,14 +6,93 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Developer.create(email: ENV['owner'], password: "123123", admin: true)
-Developer.create(email: "duartefellipe@gmail.com", password: "123123", admin: true)
 abelha_rainha = Project.create(name: "Padaria Abelha Rainha")
 farmacorp = Project.create(name: "Farmácia Farmacorp")
-# newAcao = Acao.create(nome: acao_nome, classe: acao_classe)
-# newExc = newAcao.excecaos.create(error: excecao_error, project: project)
-# newView = newExc.create_http(view_referer: view_referer, view_method: view_method, view_url: view_url)
-# newPar = newExc.parametros.create(param_tipo: parametro[:paramTipo], param_nome: parametro[:paramNome])
-# newSess = newExc.create_sessao
-# newObj = newSess.create_obj_sessao(obj_text: obj_text)
+saturno_team = Team.create(name: "Saturno", project: abelha_rainha)
+venus_team = Team.create(name: "Venus", project: farmacorp)
 
+Developer.create(email: ENV['owner'], password: "123123", admin: true)
+Developer.create(email: "duartefellipe@gmail.com", password: "123123", admin: true)
+Developer.create(email: "anderson@teste.com", password: "123123", team: saturno_team)
+Developer.create(email: "rodrigo@teste.com", password: "123123", team: venus_team)
+Developer.create(email: "fernando@teste.com", password: "123123", team: venus_team)
+
+# primeira action
+newAcao = Acao.create(nome: 'VenderProdutos', classe: 'Produto')
+newExc = newAcao.excecaos.create(error: "erro mais simples", project: abelha_rainha)
+newView = newExc.create_http(view_referer: "https://abelharainha.com/vendas", view_method: "post", view_url: "https://sistemaabelharainha.com/vendas")
+newPar = newExc.parametros.create(param_tipo: "float", param_nome: "valor")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "codigo")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "quantidade")
+newSess = newExc.create_sessao
+newObj = newSess.create_obj_sessao(obj_text: "HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: public, max-age=31536000
+X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+X-Runtime: 0.005849
+Content-Length: 27512
+")
+
+# primeira action
+newAcao = Acao.create(nome: 'VenderProdutos', classe: 'Produto')
+newExc = newAcao.excecaos.create(error: "erro mais crítico", project: abelha_rainha)
+newView = newExc.create_http(view_referer: "https://abelharainha.com/vendas", view_method: "post", view_url: "https://sistemaabelharainha.com/vendas")
+newPar = newExc.parametros.create(param_tipo: "float", param_nome: "valor")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "codigo")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "quantidade")
+newSess = newExc.create_sessao
+newObj = newSess.create_obj_sessao(obj_text: "HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: public, max-age=31536000
+X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+X-Runtime: 0.005849
+Content-Length: 27512
+")
+
+# segunda action
+newAcao = Acao.create(nome: 'CadastrarCliente', classe: 'Cliente')
+newExc = newAcao.excecaos.create(error: "Não foi possível cadastrar o cliente", project: farmacorp)
+newView = newExc.create_http(view_referer: "https://farmacorp.com/cliente", view_method: "post", view_url: "https://sistemafarmacorp.com/cliente")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "email")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "nome")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "cpf")
+newSess = newExc.create_sessao
+newObj = newSess.create_obj_sessao(obj_text: "HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: public, max-age=31536000
+X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+X-Runtime: 0.005849
+Content-Length: 27512
+")
+
+# terceira action
+newAcao = Acao.create(nome: 'VenderProdutos', classe: 'Produto')
+newExc = newAcao.excecaos.create(error: "Não foi possível vender o produto", project: abelha_rainha)
+newView = newExc.create_http(view_referer: "https://farmacorp.com/vendas", view_method: "post", view_url: "https://sistemafarmacorp.com/vendas")
+newPar = newExc.parametros.create(param_tipo: "float", param_nome: "valor")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "codigo")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "quantidade")
+newSess = newExc.create_sessao
+newObj = newSess.create_obj_sessao(obj_text: "HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: public, max-age=31536000
+X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+X-Runtime: 0.005849
+Content-Length: 27512
+")
+
+# segunda action
+newAcao = Acao.create(nome: 'CadastrarProduto', classe: 'Produto')
+newExc = newAcao.excecaos.create(error: "Não foi possível cadastrar o produto", project: farmacorp)
+newView = newExc.create_http(view_referer: "https://farmacorp.com/produto", view_method: "post", view_url: "https://sistemafarmacorp.com/produto")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "nome")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "codigo")
+newPar = newExc.parametros.create(param_tipo: "string", param_nome: "receita")
+newSess = newExc.create_sessao
+newObj = newSess.create_obj_sessao(obj_text: "HTTP/1.1 200 OK
+Content-Type: application/javascript
+Cache-Control: public, max-age=31536000
+X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+X-Runtime: 0.005849
+Content-Length: 27512
+")

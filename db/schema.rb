@@ -105,15 +105,6 @@ ActiveRecord::Schema.define(version: 2020_07_30_021915) do
     t.string "code"
   end
 
-  create_table "requisicaos", force: :cascade do |t|
-    t.string "agent"
-    t.string "encode"
-    t.bigint "acao_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["acao_id"], name: "index_requisicaos_on_acao_id"
-  end
-
   create_table "sessaos", force: :cascade do |t|
     t.bigint "excecao_id"
     t.datetime "created_at", null: false
@@ -135,7 +126,6 @@ ActiveRecord::Schema.define(version: 2020_07_30_021915) do
   add_foreign_key "https", "excecaos"
   add_foreign_key "obj_sessaos", "sessaos"
   add_foreign_key "parametros", "excecaos"
-  add_foreign_key "requisicaos", "acaos"
   add_foreign_key "sessaos", "excecaos"
   add_foreign_key "teams", "projects"
 end

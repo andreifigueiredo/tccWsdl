@@ -11,11 +11,11 @@ farmacorp = Project.create(name: "Farmácia Farmacorp")
 saturno_team = Team.create(name: "Saturno", project: abelha_rainha)
 venus_team = Team.create(name: "Venus", project: farmacorp)
 
-Developer.create(email: ENV['owner'], password: "123123", admin: true)
+Developer.create(email: ENV['gmail_username'], password: "123123", admin: true)
 Developer.create(email: "duartefellipe@gmail.com", password: "123123", admin: true)
-Developer.create(email: "anderson@teste.com", password: "123123", team: saturno_team)
-Developer.create(email: "rodrigo@teste.com", password: "123123", team: venus_team)
-Developer.create(email: "fernando@teste.com", password: "123123", team: venus_team)
+Developer.create(email: "anderson@teste.com", password: "123123", admin: false, team: saturno_team)
+Developer.create(email: "rodrigo@teste.com", password: "123123", admin: false, team: venus_team)
+Developer.create(email: "fernando@teste.com", password: "123123", admin: false, team: venus_team)
 
 # primeira action
 newAcao = Acao.create(nome: 'VenderProdutos', classe: 'Produto')

@@ -11,6 +11,8 @@ class ExceptionMailer < ApplicationMailer
 
     # binding.pry
     # mail(to: developers.last.email, subject: subject )
-    mail(to: to.map(&:inspect).join(', ').gsub("\"", ""), subject: subject)
+    if developers.length > 0
+      mail(to: to.map(&:inspect).join(', ').gsub("\"", ""), subject: subject)
+    end
   end
 end

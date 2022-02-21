@@ -21,7 +21,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :user_name            => ENV['sandgrid_username'],
     :password             => ENV['sandgrid_password'],
-    :address              => "smtp.sendgrid.net",
+    :address              => "smtp-relay.sendinblue.com",
     :port                 => 587,
     :authentication       => "plain",
     :enable_starttls_auto => true

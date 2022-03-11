@@ -59,9 +59,9 @@ Content-Length: 27512
 ")
 
 # segunda action
-newAcao = Acao.create(nome: 'CadastrarCliente', classe: 'Cliente')
-newExc = newAcao.excecaos.create(error: "Não foi possível cadastrar o cliente", project: farmacorp)
-newView = newExc.create_http(view_referer: "https://farmacorp.com/cliente", view_method: "post", view_url: "https://sistemafarmacorp.com/cliente")
+newAcao = Acao.create(nome: 'CadastrarUsuário', classe: 'Usuário')
+newExc = newAcao.excecaos.create(error: "Não foi possível cadastrar usuário Ricardo", project: farmacorp)
+newView = newExc.create_http(view_referer: "https://farmacorp.com/usuário", view_method: "post", view_url: "https://sistemafarmacorp.com/usuário")
 newPar = newExc.parametros.create(param_tipo: "string", param_nome: "email")
 newPar = newExc.parametros.create(param_tipo: "string", param_nome: "nome")
 newPar = newExc.parametros.create(param_tipo: "string", param_nome: "cpf")
@@ -139,9 +139,9 @@ Content-Length: 27512
 ")
 
 # segunda action
-newAcao = Acao.create(nome: 'CadastrarCliente', classe: 'Cliente')
-newExc = newAcao.excecaos.create(error: "Não foi possível cadastrar o cliente", project: farmacorp_carla)
-newView = newExc.create_http(view_referer: "https://farmacorp.com/cliente", view_method: "post", view_url: "https://sistemafarmacorp.com/cliente")
+newAcao = Acao.create(nome: 'CadastrarUsuário', classe: 'Usuário')
+newExc = newAcao.excecaos.create(error: "Não foi possível cadastrar usuário Ricardo", project: farmacorp_carla)
+newView = newExc.create_http(view_referer: "https://farmacorp.com/usuário", view_method: "post", view_url: "https://sistemafarmacorp.com/usuário")
 newPar = newExc.parametros.create(param_tipo: "string", param_nome: "email")
 newPar = newExc.parametros.create(param_tipo: "string", param_nome: "nome")
 newPar = newExc.parametros.create(param_tipo: "string", param_nome: "cpf")

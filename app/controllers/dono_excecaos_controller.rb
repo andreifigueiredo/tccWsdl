@@ -16,8 +16,8 @@ class DonoExcecaosController < ApplicationController
   def update
     respond_to do |format|
       if @dono_excecao.update(dono_excecao_params)
-        format.html { redirect_to @dono_excecao, notice: 'dono_excecao was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dono_excecao }
+        format.html { redirect_to @dono_excecao.excecao, notice: 'dono_excecao was successfully updated.' }
+        format.json { render :show, status: :ok, location: @dono_excecao.excecao }
       else
         format.html { render :edit }
         format.json { render json: @dono_excecao.errors, status: :unprocessable_entity }

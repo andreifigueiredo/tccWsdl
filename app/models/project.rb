@@ -25,9 +25,13 @@ class Project < ApplicationRecord
       count = count + excecao[1]
     end
     
-    solved_percentage = "#{(self.solved_exceptions.to_f/count)*100}%"
+    if solved_exceptions > 0
+      solved_percentage = "#{(self.solved_exceptions.to_f/count)*100}%"
+    else
+      solved_percentage = "0.0%"
+    end
 
-    return solved_percentage || 0
+    return solved_percentage  
   end
   
   def assigned_exceptions

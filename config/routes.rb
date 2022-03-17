@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :developer_report, only: [:show]
   resources :excecaos, only: [:index, :show]
   resources :dono_excecaos, only: [:show, :edit, :update]
+  resources :developer_teams, only: [:edit, :update]
+
   
   root to: 'home#index'
   

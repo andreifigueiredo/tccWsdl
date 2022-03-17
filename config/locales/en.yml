@@ -58,6 +58,8 @@ en:
   project:
     access_key_regenerate: "New access key"
     newTitle: "New Project"
+  team:
+    addTeamDev: "Add developers in Team"
   
   activerecord:
     models:

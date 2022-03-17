@@ -12,7 +12,7 @@ class DonoExcecaosController < ApplicationController
 
 
 # PATCH/PUT /dono_excecaos/1
-  # PATCH/PUT /dono_excecaos/1.json
+# PATCH/PUT /dono_excecaos/1.json
   def update
     respond_to do |format|
       if @dono_excecao.update(dono_excecao_params)

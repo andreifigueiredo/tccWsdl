@@ -1,0 +1,49 @@
+<%= form_for @team, :url => developer_team_path(@team) do |form| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this developer from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :team_id %>
+    <table class="responsive nowrap table table-hover" id="edit_team_developers" data-sort="true">
+      <thead>
+        <tr>
+          <th></th>
+          <th data-data="email">Email</th>
+          <th data-data="admin">Admin</th>
+          <th data-data="name"><%= t('developer.team') %></th>
+          <th data-data="solved"><%= t('team.solved') %></th>
+          <th data-data="ownered"><%= t('team.assigned') %></th>
+        </tr>
+      </thead>
+    <% @developers.each do |developer| %>
+      <tr>
+        <% if(@team.id == developer.team_id) %>
+          <td><input type="checkbox" name="developer_ids[]" value=<%= developer.id%> checked="true" />
+          </td>
+        <% else %>
+          <td><input type="checkbox" name="developer_ids[]" value=<%= developer.id%>  />
+          </td>
+        <% end %>
+        <td><%= developer.email %></td>
+        <td><%= developer.admin %></td>
+        <td><%= developer.team && developer.team.name %></td>
+        <td><%= developer.solved_count %></td>
+        <td><%= developer.ownered_count %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div> 
+<% end %>

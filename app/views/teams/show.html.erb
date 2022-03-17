@@ -33,6 +33,12 @@
 </table>
 </p>
 
+<% if current_developer.admin %>
+  <div class="edit_developer_team">
+    <%= render "developer_teams/edit", team: @team %>
+  </div>
+<% end %>
+
 <%= link_to t('edit'), edit_team_path(@team) %> |
 <%= link_to t('back'), teams_path %>
 

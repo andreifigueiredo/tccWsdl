@@ -168,6 +168,7 @@ table {
 
 .hamburguer-menu_container{
   display: none;
+  background-color: $primary !important;
 
   .header {
     display: none;
@@ -189,6 +190,10 @@ table {
   color: black; /* Black text color */
   padding: 6px; /* Add some padding */
   text-decoration: none; /* Remove underline from links */
+
+  h1 {
+    color: white;
+  }
 }
 
 .header a:hover {

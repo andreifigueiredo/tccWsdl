@@ -188,10 +188,11 @@ table {
 
 .header a {
   color: black; /* Black text color */
-  padding: 6px; /* Add some padding */
   text-decoration: none; /* Remove underline from links */
 
+  padding: 0;
   h1 {
+    padding-right: 16px;
     color: white;
   }
 }
@@ -206,6 +207,7 @@ table {
 }
 
 .header-right {
+  padding-right: 16px;
   a{
     color: white;
   }

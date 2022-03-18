@@ -24,7 +24,7 @@
     <% @team.developers.each do |developer|%>
       <tr>
         <td><%= developer.email %></td>
-        <td><%= developer.solved_count %></td>
+        <td><%= developer.done_exceptions %></td>
         <td><%= developer.ownered_count %></td>
         <td><%= link_to t('show'), developer %></td>
       </tr>

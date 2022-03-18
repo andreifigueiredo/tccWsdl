@@ -21,7 +21,21 @@ class Developer < ApplicationRecord
         count = count+1
       end
     end
-    solved_percentage = "#{(count.to_f/self.dono_excecaos.count)*100}%"
+    count
+  end
+
+  def done_exceptions
+    count = 0    
+    
+    solved_exceptions = solved_count
+    
+    if solved_exceptions > 0
+      solved_percentage = "#{(self.solved_exceptions.to_f/count)*100}%"
+    else
+      solved_percentage = "0.0%"
+    end
+
+    return solved_percentage  
   end
 
   def idle?

@@ -18,7 +18,9 @@ class DeveloperTeamsController < ApplicationController
 
         (developers_ids - params[:developer_ids]).each do |id|
           developer = Developer.find(id)
-          developer.update(team: nil)
+          if developer.team_id == @team.id 
+            developer.update(team: nil)
+          end
         end
         (params[:developer_ids] - developers_ids).each do |id|
           developer = Developer.find(id)

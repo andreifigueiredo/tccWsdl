@@ -13,7 +13,7 @@ class DonoExcecao < ApplicationRecord
   }
 
   def update_created_at
-    if self.developer_id.present?
+    if self.developer_id_changed?
       self.created_at = Time.now
     end
   end

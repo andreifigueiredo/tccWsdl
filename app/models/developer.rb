@@ -25,12 +25,10 @@ class Developer < ApplicationRecord
   end
 
   def done_exceptions
-    count = 0    
-    
-    solved_exceptions = solved_count
+    solved_exceptions = self.solved_count
     
     if solved_exceptions > 0
-      solved_percentage = "#{(self.solved_exceptions.to_f/count)*100}%"
+      solved_percentage = "#{(solved_exceptions.to_f/self.ownered_count)*100}%"
     else
       solved_percentage = "0.0%"
     end

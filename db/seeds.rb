@@ -1,14 +1,23 @@
+puts "Criando projetos..."
 abelha_rainha = Project.create(name: "Abelha Rainha")
 farmacorp = Project.create(name: "Farmacorp")
 
+puts "Criando times..."
 saturno = Team.create(name: "Saturno", project: abelha_rainha)
 venus = Team.create(name: "Venus", project: farmacorp)
 
+puts "Criando desenvolvedores..."
 Developer.create(email: ENV['gmail_username'], password: "123123", admin: true)
 Developer.create(email: "duartefellipe@gmail.com", password: "123123", admin: true)
-Developer.create(email: "anderson@teste.com", password: "123123", admin: false, team: saturno)
+anderson = Developer.create(email: "anderson@teste.com", password: "123123", admin: false, team: saturno)
+eduardo = Developer.create(email: "eduardo@teste.com", password: "123123", admin: false, team: saturno)
 Developer.create(email: "rodrigo@teste.com", password: "123123", admin: false, team: venus)
-Developer.create(email: "fernando@teste.com", password: "123123", admin: false, team: venus)
+fernando = Developer.create(email: "fernando@teste.com", password: "123123", admin: false, team: venus)
+
+# --------------------------------------------------------------------
+
+Timecop.freeze(Time.now - 10.days)
+puts Time.now
 
 def create_new_exception( actionName:, actionClass:, exception:, project:, viewReferer:, viewMethod:, viewUrl:, params:, objText: )
   newAcao = Acao.create(nome: actionName, classe: actionClass)
@@ -21,6 +30,7 @@ def create_new_exception( actionName:, actionClass:, exception:, project:, viewR
   newObj = newSess.create_obj_sessao(obj_text: objText)
 end
 
+puts "Criando exceções..."
 # erro mais simples
 create_new_exception({
   actionName: 'VenderProdutos',
@@ -74,6 +84,62 @@ create_new_exception({
     {
       tipo: "string",
       name: "quantidade",
+    },
+  ],
+  objText: "HTTP/1.1 200 OK
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
+  X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+  X-Runtime: 0.005849
+  Content-Length: 27512
+  "
+})
+
+# Erro exemplo 1
+exemplo_atribuido = create_new_exception({
+  actionName: 'Cadastro Usuário',
+  actionClass: 'User',
+  exception: "Não foi possível cadastrar usuário",
+  project: abelha_rainha,
+  viewReferer: "https://abelharainha.com/usuario",
+  viewMethod: "post",
+  viewUrl: "https://sistemaabelharainha.com/usuario",
+  params: [
+    {
+      tipo: "string",
+      name: "nome",
+    },
+    {
+      tipo: "string",
+      name: "email",
+    },
+  ],
+  objText: "HTTP/1.1 200 OK
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
+  X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+  X-Runtime: 0.005849
+  Content-Length: 27512
+  "
+})
+
+# Erro exemplo 2
+exemplo_concluido = create_new_exception({
+  actionName: 'Editar Usuário',
+  actionClass: 'User',
+  exception: "Não foi possível editar usuário",
+  project: abelha_rainha,
+  viewReferer: "https://abelharainha.com/usuario",
+  viewMethod: "put",
+  viewUrl: "https://sistemaabelharainha.com/usuario",
+  params: [
+    {
+      tipo: "string",
+      name: "nome",
+    },
+    {
+      tipo: "string",
+      name: "email",
     },
   ],
   objText: "HTTP/1.1 200 OK
@@ -181,6 +247,140 @@ create_new_exception({
   Content-Length: 27512
   "
 })
+
+# Erro exemplo 3
+exemplo_concluido_1 = create_new_exception({
+  actionName: 'Cadastrar Usuário',
+  actionClass: 'User',
+  exception: "Não foi possível cadastrar usuário",
+  project: farmacorp,
+  viewReferer: "https://farmacorp.com/produto",
+  viewMethod: "post",
+  viewUrl: "https://sistemafarmacorp.com/produto",
+  params: [
+    {
+      tipo: "string",
+      name: "nome",
+    },
+    {
+      tipo: "string",
+      name: "email",
+    },
+  ],
+  objText: "HTTP/1.1 200 OK
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
+  X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+  X-Runtime: 0.005849
+  Content-Length: 27512
+  "
+})
+
+# Erro exemplo 4
+exemplo_concluido_2 = create_new_exception({
+  actionName: 'Editar Usuário',
+  actionClass: 'User',
+  exception: "Não foi possível editar usuário",
+  project: farmacorp,
+  viewReferer: "https://farmacorp.com/produto",
+  viewMethod: "put",
+  viewUrl: "https://sistemafarmacorp.com/produto",
+  params: [
+    {
+      tipo: "string",
+      name: "nome",
+    },
+    {
+      tipo: "string",
+      name: "email",
+    },
+  ],
+  objText: "HTTP/1.1 200 OK
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
+  X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+  X-Runtime: 0.005849
+  Content-Length: 27512
+  "
+})
+
+# Erro exemplo 3
+exemplo_atriuido_1 = create_new_exception({
+  actionName: 'Deletar Usuário',
+  actionClass: 'User',
+  exception: "Não foi possível deletar usuário",
+  project: farmacorp,
+  viewReferer: "https://farmacorp.com/produto",
+  viewMethod: "destroy",
+  viewUrl: "https://sistemafarmacorp.com/produto",
+  params: [
+    {
+      tipo: "id",
+      name: "id",
+    },
+  ],
+  objText: "HTTP/1.1 200 OK
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
+  X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+  X-Runtime: 0.005849
+  Content-Length: 27512
+  "
+})
+
+# Erro exemplo 5
+exemplo_concluido_3 = create_new_exception({
+  actionName: 'Deletar Usuário',
+  actionClass: 'User',
+  exception: "Não foi possível deletar usuário",
+  project: abelha_rainha,
+  viewReferer: "https://abelharainha.com/usuario",
+  viewMethod: "destroy",
+  viewUrl: "https://sistemaabelharainha.com/usuario",
+  params: [
+    {
+      tipo: "string",
+      name: "nome",
+    },
+    {
+      tipo: "string",
+      name: "email",
+    },
+  ],
+  objText: "HTTP/1.1 200 OK
+  Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000
+  X-Request-Id: 34e554e2-2c88-43e8-b012-3ee8622a8574
+  X-Runtime: 0.005849
+  Content-Length: 27512
+  "
+})
+
+# --------------------------------------------------------------------
+
+puts "Criando dono_exceções..."
+DonoExcecao.find_by_excecao_id(exemplo_atribuido.id).update(developer: eduardo)
+DonoExcecao.find_by_excecao_id(exemplo_concluido.id).update(developer: eduardo)
+
+Timecop.freeze(Time.now + 1.hours)
+puts Time.now
+
+
+DonoExcecao.find_by_excecao_id(exemplo_concluido.id).update(solved: true)
+DonoExcecao.find_by_excecao_id(exemplo_concluido_3.id).update(developer: anderson)
+
+DonoExcecao.find_by_excecao_id(exemplo_atriuido_1.id).update(developer: fernando)
+DonoExcecao.find_by_excecao_id(exemplo_concluido_1.id).update(developer: fernando)
+DonoExcecao.find_by_excecao_id(exemplo_concluido_2.id).update(developer: fernando)
+
+Timecop.return
+puts Time.now
+
+DonoExcecao.find_by_excecao_id(exemplo_concluido_1.id).update(solved: true)
+DonoExcecao.find_by_excecao_id(exemplo_concluido_2.id).update(solved: true)
+
+DonoExcecao.find_by_excecao_id(exemplo_concluido_3.id).update(solved: true)
+
 
 # --------------------------------------------------------------------
 

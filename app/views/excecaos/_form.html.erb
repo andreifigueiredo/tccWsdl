@@ -12,7 +12,6 @@
   <% end %>
 
   <% if current_developer.admin %>
-
     <div class="field">
       <%= form.label :developer_id %>
       <table class="responsive nowrap table table-hover" id="edit_dono_excecao" data-sort="true">
@@ -42,9 +41,17 @@
       <% end %>
       </table>
     </div>
+  <% else %>
+    <div class="field">
+      <%= form.label :developer_id, t('exception.owner') %>
+      <input 
+        type="checkbox" 
+        name="dono_excecao[developer_id]" 
+        value=<%= current_developer.id%> 
+        checked=<%= current_developer.id == dono_excecao.developer_id%> />
   <% end %>
 
-  <% if dono_excecao.developer_id.present? && (current_developer.id == dono_excecao.developer_id) %>
+  <% if current_developer.admin || (dono_excecao.developer_id.present? && (current_developer.id == dono_excecao.developer_id)) %>
     <div class="field">
       <%= form.label :solved %>
       <%= form.radio_button :solved, false, :value => false%>

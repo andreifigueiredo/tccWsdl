@@ -1,5 +1,5 @@
 class DonoExcecaosController < ApplicationController
-  before_action :set_dono_excecao, only: [:show, :edit, :update]
+  before_action :get_dono_excecao, only: [:show, :edit, :update]
   before_action :get_developers, only: [:edit]
   before_action :authenticate_developer!
 
@@ -27,7 +27,7 @@ class DonoExcecaosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_dono_excecao
+    def get_dono_excecao
       @dono_excecao = DonoExcecao.find(params[:id])
     end
 

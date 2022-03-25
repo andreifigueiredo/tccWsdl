@@ -21,7 +21,6 @@ class ProjectsController < ApplicationController
     excecao_counts.each do |excecao_count|
       @excecao = Excecao.where(error: excecao_count[0]).last
       
-      # binding.pry
       
       if @excecao.dono_excecao.developer_id.nil?
         @excecaos_n_atribuido_count << excecao_count[1]
@@ -30,6 +29,7 @@ class ProjectsController < ApplicationController
         @excecaos_resolvido_count << excecao_count[1]
         @excecaos_resolvido << @excecao
       else
+        # binding.pry
         @excecaos_atribuido_count << excecao_count[1]
         @excecaos_atribuido << @excecao
       end

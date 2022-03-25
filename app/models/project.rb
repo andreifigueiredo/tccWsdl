@@ -38,10 +38,13 @@ class Project < ApplicationRecord
     count = 0
 
     self.excecaos.each do |excecao|
-      if excecao.dono_excecao.developer_id.present?
+      if excecao.dono_excecao.solved != true && excecao.dono_excecao.developer_id.present?
+        puts "dono_excecao", excecao.dono_excecao.id
         count = count + 1
       end
     end
+
+    puts "count", count
 
     return count
   end
@@ -56,7 +59,11 @@ class Project < ApplicationRecord
     
     count = excecao_count - self.assigned_exceptions - self.solved_exceptions
     
-    return count
+    if count > 0
+      return count
+    else
+      return 0
+    end
   end
   
   def developers_count

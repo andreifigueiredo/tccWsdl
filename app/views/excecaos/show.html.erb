@@ -85,7 +85,7 @@
       </div>
     <% end %>
 
-    <% if current_developer.admin && @dono_excecao.present?%>
+    <% if current_developer.admin || (current_developer.team.project === @excecao.project)%>
       <div class="edit_dono_excecao">
           <%= render "dono_excecaos/edit", dono_excecao: @dono_excecao %>
       </div>

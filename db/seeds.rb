@@ -13,6 +13,7 @@ anderson = Developer.create(email: "anderson@teste.com", password: "123123", adm
 eduardo = Developer.create(email: "eduardo@teste.com", password: "123123", admin: false, team: saturno)
 Developer.create(email: "rodrigo@teste.com", password: "123123", admin: false, team: venus)
 fernando = Developer.create(email: "fernando@teste.com", password: "123123", admin: false, team: venus)
+Developer.create(email: "joao@teste.com", password: "123123", team: venus)
 
 # --------------------------------------------------------------------
 
@@ -187,7 +188,7 @@ create_new_exception({
 create_new_exception({
   actionName: 'VenderProdutos',
   actionClass: 'Produto',
-  exception: "Não foi possível completar venda",
+  exception: "Não foi possível vender o medicamento rinosoro",
   project: farmacorp,
   viewReferer: "https://farmacorp.com/produto",
   viewMethod: "post",

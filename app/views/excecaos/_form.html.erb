@@ -51,7 +51,7 @@
         checked=<%= current_developer.id == dono_excecao.developer_id%> />
   <% end %>
 
-  <% if current_developer.admin || (dono_excecao.developer_id.present? && (current_developer.id == dono_excecao.developer_id)) %>
+  <% if dono_excecao.developer_id.present? && (current_developer.id == dono_excecao.developer_id || current_developer.admin) %>
     <div class="field">
       <%= form.label :solved %>
       <%= form.radio_button :solved, false, :value => false%>

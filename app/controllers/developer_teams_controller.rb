@@ -16,17 +16,19 @@ class DeveloperTeamsController < ApplicationController
       if developerTeamParams
         developers_ids = @developers.pluck(:id)
 
-        (developers_ids - params[:developer_ids]).each do |id|
-          developer = Developer.find(id)
-          if developer.team_id == @team.id 
-            developer.update(team: nil)
+        if params[:developer_ids]
+          (developers_ids - params[:developer_ids]).each do |id|
+            developer = Developer.find(id)
+            if developer.team_id == @team.id 
+              developer.update(team: nil)
+            end
+          end
+          (params[:developer_ids] - developers_ids).each do |id|
+            developer = Developer.find(id)
+            developer.update(team: @team)
           end
         end
-        (params[:developer_ids] - developers_ids).each do |id|
-          developer = Developer.find(id)
-          developer.update(team: @team)
-        end
-          format.html {redirect_to @team, notice: 'developers was successfully updated.' }
+        format.html {redirect_to @team, notice: 'developers was successfully updated.' }
       end
     end
   end

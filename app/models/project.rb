@@ -39,12 +39,9 @@ class Project < ApplicationRecord
 
     self.excecaos.each do |excecao|
       if excecao.dono_excecao.solved != true && excecao.dono_excecao.developer_id.present?
-        puts "dono_excecao", excecao.dono_excecao.id
         count = count + 1
       end
     end
-
-    puts "count", count
 
     return count
   end

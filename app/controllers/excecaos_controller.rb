@@ -17,6 +17,6 @@ class ExcecaosController < ApplicationController
     end
 
     def get_developers
-      @developers = Developer.all
+      @developers = Developer.where(team_id: @excecao.project.team.id)
     end
 end

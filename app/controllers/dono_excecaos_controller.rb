@@ -37,6 +37,6 @@ class DonoExcecaosController < ApplicationController
     end
 
     def get_developers
-      @developers = Developer.all
+      @developers = Developer.where(team: @dono_excecao.excecao.project.team)
     end
 end

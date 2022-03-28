@@ -222,7 +222,7 @@ create_new_exception({
 create_new_exception({
   actionName: 'CadastrarProduto',
   actionClass: 'Produto',
-  exception: "Não foi possível cadastrar o produto",
+  exception: "Não foi possível cadastrar o medicamento Dipirona Genérico",
   project: farmacorp,
   viewReferer: "https://farmacorp.com/produto",
   viewMethod: "post",

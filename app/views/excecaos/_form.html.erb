@@ -63,7 +63,7 @@
     <div class="field">
       <%= form.label :evaluate %>
       <% DonoExcecao.evaluates.keys.each do |evaluate| %>
-        <br><%= radio_button_tag 'dono_excecao[evaluate]', evaluate %>
+        <br><%= form.radio_button :evaluate, evaluate %>
         <%= evaluate.humanize %>
       <% end %>
     </div>

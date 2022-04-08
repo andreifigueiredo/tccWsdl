@@ -56,7 +56,7 @@ gem 'devise'
 gem 'devise_invitable', '~> 2.0.0'
 
 # Bootstrap
-gem 'bootstrap', '~>4.0.0'
+gem 'bootstrap', '~>4.3.1'
 
 #Email styles
 gem 'premailer-rails', '~> 1.10.2'

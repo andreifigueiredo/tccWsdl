@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @excecaos_resolvido_count = []
     @excecaos_resolvido = []
     excecao_counts.each do |excecao_count|
-      @excecao = Excecao.where(error: excecao_count[0]).last
+      @excecao = Excecao.where(error: excecao_count[0], project_id: @project.id).last
       
       
       if @excecao.dono_excecao.developer_id.nil?

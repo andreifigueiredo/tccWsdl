@@ -9,7 +9,7 @@ venus = Team.create(name: "Venus", project: farmacorp)
 puts "Criando desenvolvedores..."
 Developer.create(email: ENV['gmail_username'], password: "123123", admin: true)
 Developer.create(email: "duartefellipe@gmail.com", password: "123123", admin: true)
-Developer.create(email: "jonathan.reis@gmail.com", password: "123123", admin: true)
+Developer.create(email: "marcia.cssantos95@gmail.com", password: "123123", admin: true)
 anderson = Developer.create(email: "anderson@teste.com", password: "123123", admin: false, team: saturno)
 eduardo = Developer.create(email: "eduardo@teste.com", password: "123123", admin: false, team: saturno)
 Developer.create(email: "leandro@teste.com", password: "123123", admin: false, team: saturno)
